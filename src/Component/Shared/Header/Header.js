@@ -18,7 +18,7 @@ const Header = () => {
             </nav> */}
 
             <div className=' bg-zinc-800 text-white py-3'>
-                <h2 className='text-center'> Warehouse</h2>
+                <h2 className='text-center'> Fashion Flavour </h2>
             </div>
 
             {/* <div className="collapse" id="navbarToggleExternalContent"> */}
