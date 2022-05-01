@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
-import control from '../../../Images/control.png'
 import logo from '../../../Images/logo.png'
 import { FiHome } from 'react-icons/fi';
 import { MdOutlineInventory2 } from 'react-icons/md';
@@ -14,6 +13,7 @@ import { FaBullseye } from "react-icons/fa";
 import { HiOutlineLogin } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { MdOutlineDoubleArrow } from "react-icons/md";
 
 
 
@@ -29,21 +29,22 @@ const Header = () => {
 
 
     return (
-        <div className='flex'>
 
-            <div className={`${open ? 'w-72' : 'w-20'} duration-300 h-screen px-3 pt-8 bg-zinc-800 relative`}>
+        <div className={`flex ${open && ''}`}>
 
-                <img src={control} className={`
-                absolute cursor-pointer rounded-full -right-3 top-9 w-8 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)} />
+
+            <div className={`${open ? 'w-72' : 'w-16'} duration-300 h-screen lg:h-full px-2 bg-zinc-800 relative`}>
+
+                <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow/> </span>
 
                 <div className='flex gap-x-4 items-center'>
-                    <img src={logo} alt="" className={` cursor-pointer duration-500`} />
+                    <img src="https://i.ibb.co/mFyBtvG/logo.png" alt="" className={` cursor-pointer duration-500 ${open && 'rotate-[360deg]'}`} />
 
                     <h1 className={`font-serif text-yellow-600 origin-left font-medium text-2xl duration-300 ${!open && 'scale-0'}`}>Fashion Flavour</h1>
                 </div>
 
 
-                <nav className='pt-6'>
+                <nav className='pt-16'>
 
                     <Link  to='/' className={`text-yellow-600 text-lg mb-4 flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                         <span className='flex items-center'> <FiHome className='text-2xl'/> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>HOME</span> </span>
@@ -88,6 +89,8 @@ const Header = () => {
             </div>
              
         </div>
+
+        
     );
 };
 

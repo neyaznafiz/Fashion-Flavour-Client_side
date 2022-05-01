@@ -3,7 +3,7 @@ import auth from '../../../../Firebase/firebase.init'
 import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from 'react-firebase-hooks/auth';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { BsFacebook } from 'react-icons/bs';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,7 @@ const SocialLogin = () => {
 
   const [signInWithFacebook, facebookUser, FacebookLoading, FacebookError] = useSignInWithFacebook(auth);
 
+  const navigate = useNavigate()
   const location = useLocation()
   let from = location.state?.from?.pathname || "/";
 
@@ -29,11 +30,9 @@ const SocialLogin = () => {
   }
 
   if (googleUser || facebookUser) {
-    return (
-      <div>
-        <p>Signed In User: {googleUser.email}</p>
-      </div>
-    );
+    navigate(from, { replace: true });
+
+    toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature here.')
   }
 
 

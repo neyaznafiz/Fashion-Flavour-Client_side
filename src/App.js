@@ -10,11 +10,26 @@ import RequireAuth from './Component/Pages/RequireAuth/RequireAuth';
 import AddProduct from './Component/Pages/Products/AddProduct/AddProduct';
 import ManageProducts from './Component/Pages/Products/ManageProducts/ManageProducts';
 import MyProducts from './Component/Pages/Products/MyProducts/MyProducts';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../src/Style/Style.css'
+import About from './Component/Pages/About/About';
+import { useState } from 'react';
 
 function App() {
+
+
   return (
+
+    <div>
+
+    <div className='bg-zinc-800 py-3 text-center border-0 gap-0 '>
+                <h2 className='text-2xl font-serif text-yellow-600'>FASHION FLAVOUR</h2>
+            </div>
+
     <div className="flex">
-      <Header></Header>
+
+      <Header className=''></Header>
 
       <Routes>
 
@@ -40,6 +55,7 @@ function App() {
         }></Route>
         
 
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/*' element={<NotFund></NotFund>}></Route>
@@ -47,7 +63,8 @@ function App() {
 
       </Routes>
 
-   
+   <ToastContainer></ToastContainer>
+    </div>
     </div>
   );
 }
