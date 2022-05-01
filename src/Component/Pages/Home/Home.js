@@ -2,8 +2,9 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div className=' w-full'>
+        <div>
 
+<div className=' w-full'>
 
             <div id="carouselExampleCaptions" className="carousel slide relative border-y-8 border-yellow-600" data-bs-ride="carousel">
                 <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
@@ -39,7 +40,7 @@ const Home = () => {
                         <img
                             src="https://i.ibb.co/b3HHKtj/slide-2.jpg"
                             className="block w-full" 
-                            // style={{height: '1100px'}}
+                           
                             alt="..."
                         />
                         <div className="carousel-caption hidden md:block absolute text-center">
@@ -69,6 +70,8 @@ const Home = () => {
                 </button>
             </div>
 
+
+        </div>
 
         </div>
     );
