@@ -30,10 +30,10 @@ const Header = () => {
 
     return (
 
-        <div className={`flex ${open && ''}`}>
+        <div className={`${open && ''}`}>
 
 
-            <div className={`${open ? 'w-72' : 'w-16'} duration-300 h-full lg:h-full px-2 bg-zinc-800 relative`}>
+            <div className={`${open ? 'w-72' : 'w-16'} duration-300 h-screen px-2 bg-zinc-800 relative`}>
 
                 <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow/> </span>
 

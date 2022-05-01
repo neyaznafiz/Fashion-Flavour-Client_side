@@ -1,6 +1,6 @@
 .form-shadow{
-    border-radius: 52px;
-background: linear-gradient(145deg, #231818, #2a1d1d);
-box-shadow:  8px 8px 12px #1b1212,
-             -8px -8px 12px #332424;
+    border-radius: 50px;
+background: #ca8a04;
+box-shadow:  20px 20px 60px #ac7503,
+             -20px -20px 60px #e89f05;
 }
