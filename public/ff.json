@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Black,White Tuxedo Suit",
+        "price": 999,
+        "Img": "https://i.ibb.co/MZsBv4Z/dress-4.jpg",
+        "quantity": 164,
+        "supplier": "Albaro Cloth",
+        "description": "Very professional, responded to my questions very quickly. I sent her the measurements and the suits perfectly! We are very please with quality of the material and the custom fit."
+    },
+    {
+        "name": "Formal wear for men",
+        "price": 599,
+        "Img": "https://i.ibb.co/B3sj8SQ/dress-2.jpg",
+        "quantity": 144,
+        "supplier": "Times Leather",
+        "description": "Wrinkle-free and machine washable to wear straight from the dryer. Side slash pockets and double-welt back pockets.Fabrication makes this your most reached for dress"
+    },
+    {
+        "name": "Sleeve Women's Skater Dress",
+        "price": 399,
+        "Img": "https://i.ibb.co/3zL3GXz/dress-1.jpg",
+        "quantity": 95,
+        "supplier": "AETHNICAPLUS#14 D TILJALA SHIBTALA KOLKATA",
+        "description": "The dress colour is thw same as in the pictures and the style too. The material is thin, perfectly made for summer. It is very cute and looks lovely with a belt."
+    },
+    {
+        "name": "Silk Kurta",
+        "price": 555,
+        "Img": "https://i.ibb.co/ZJYxB5s/dress-3.jpg",
+        "quantity": 556,
+        "supplier": "Vedant Fashions Limited",
+        "description": "Readymade Art Dupion Silk Kurta in Off White. This Collar Neck and Full Sleeve attire is Prettified with Zari and Resham Work"
+    },
+    {
+        "name": "Men's Shoe",
+        "price": 199,
+        "Img": "https://i.ibb.co/bmYMt2r/shoe-2.jpg",
+        "quantity": 45,
+        "supplier": "Clarks LTD",
+        "description": "A shoe designed to take on the Monday through Friday grind. Stretch Gore Panels for a Flexible Fit. Ortholite footbed that softens impact and wicks away moisture"
+    },
+    {
+        "name": "Formal Men's Lofer",
+        "price": 159,
+        "Img": "https://i.ibb.co/PcHTcz5/shoe-1.jpg",
+        "quantity": 140,
+        "supplier": "A Florsheim Shoes",
+        "description": "A naturally breathable material, leather helps keep your feet cool, dry and comfortable. It also has the ability to stretch and fold, allowing it to mold to your foot without cracking or creasing."
+    }
+]
