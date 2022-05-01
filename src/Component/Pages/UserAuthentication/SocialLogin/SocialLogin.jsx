@@ -4,6 +4,7 @@ import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { BsFacebook } from 'react-icons/bs';
 import { useLocation } from 'react-router-dom';
+import Loading from '../../../Shared/Loading/Loading';
 
 
 const SocialLogin = () => {
@@ -25,7 +26,7 @@ const SocialLogin = () => {
       }
 
       if (googleLoading || FacebookLoading) {
-        return <p>Loading...</p>;
+        return <Loading></Loading>
       }
 
       if (googleUser || facebookUser) {
