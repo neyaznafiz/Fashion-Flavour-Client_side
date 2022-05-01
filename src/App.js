@@ -4,26 +4,26 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './Component/Shared/Header/Header';
 import Home from './Component/Pages/Home/Home'
 import Blog from './Component/Pages/Blog/Blog'
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import LogIn from './Component/Pages/UserAuthentication/LogIn/LogIn';
 import NotFund from './Component/Pages/NotFund/NotFund';
 
 function App() {
   return (
-    <div className="App">
-     <Header></Header>
+    <div className="flex">
+      <Header></Header>
 
-     <Routes>
+      <Routes>
 
-<Route path='/' element={<Home></Home>}></Route>
-<Route path='/blog' element={<Blog></Blog>}></Route>
-<Route path='/login' element={<LogIn></LogIn>}></Route>
-<Route path='/*' element={<NotFund></NotFund>}></Route>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/login' element={<LogIn></LogIn>}></Route>
+        <Route path='/*' element={<NotFund></NotFund>}></Route>
 
 
-     </Routes>
+      </Routes>
 
-     <ToastContainer></ToastContainer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
