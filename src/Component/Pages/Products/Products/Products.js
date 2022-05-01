@@ -1,5 +1,6 @@
 import React from 'react';
 import useProducts from '../../../Shared/useProducts/useProducts';
+import Product from '../Product/Product';
 
 const Products = () => {
 
@@ -7,7 +8,11 @@ const Products = () => {
 
     return (
         <div>
-            
+            {
+                product.map(product => <Product
+                    key={product._id}
+                    product={product}></Product>)
+            }
         </div>
     );
 };
