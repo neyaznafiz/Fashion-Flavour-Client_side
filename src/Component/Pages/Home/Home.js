@@ -5,7 +5,7 @@ const Home = () => {
         <div className=' w-full'>
 
 
-            <div id="carouselExampleCaptions" className="carousel slide relative" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" className="carousel slide relative border-y-8 border-yellow-600" data-bs-ride="carousel">
                 <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                     <button
                         type="button"
@@ -26,25 +26,25 @@ const Home = () => {
                 <div className="carousel-inner relative overflow-hidden w-full">
                     <div className="carousel-item active relative float-left w-full">
                         <img
-                            src="https://i.ibb.co/r7MX4Yg/slide-1.jpg"
+                            src="https://i.ibb.co/yNm2ttQ/slide-1.jpg"
                             className="block w-full" 
                             alt="..."
                         />
-                        <div className="carousel-caption hidden md:block absolute text-center">
-                            <h5 className="text-xl">First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                        <div className="carousel-caption hidden md:block absolute">
+                            <h5 className="text-6xl -indent-8 border-l-4 font-bold py-3">THE CLASSIC TUX IS <br /> NEVER OUT OF STYLE</h5>
+                            <p className='font-semibold'>In the end, when a man puts on a tuxedo, he feels special.</p>
                         </div>
                     </div>
                     <div className="carousel-item relative float-left w-full">
                         <img
-                            src="https://i.ibb.co/M8J78NB/post-11-1-1.jpg"
+                            src="https://i.ibb.co/b3HHKtj/slide-2.jpg"
                             className="block w-full" 
                             // style={{height: '1100px'}}
                             alt="..."
                         />
                         <div className="carousel-caption hidden md:block absolute text-center">
-                            <h5 className="text-xl">Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                            <h5 className="text-6xl -indent-8 border-l-4 font-bold py-3">LEATHER & SUEDE</h5>
+                            <p className='font-semibold'>Most commonly, it comes from sheep, but also from deer, goats and calves.</p>
                         </div>
                     </div>
                     
