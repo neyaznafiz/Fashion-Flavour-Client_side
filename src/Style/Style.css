@@ -1,6 +1,21 @@
+
 .form-shadow{
-    border-radius: 50px;
-background: #ca8a04;
-box-shadow:  20px 20px 60px #ac7503,
-             -20px -20px 60px #e89f05;
+    border-radius: 21px;
+background: linear-gradient(315deg, #b67c04, #d89404);
+box-shadow:  -20px -20px 55px #6f4c02,
+             20px 20px 55px #ffc806;
+}
+
+.btn-shadow{
+    border-radius: 21px;
+    background: #ca8a04;
+    box-shadow: inset -39px -39px 78px #8b5f03,
+                inset 39px 39px 78px #ffb505;
+}
+
+.btn-shadow:hover{
+    border-radius: 21px;
+    background: linear-gradient(145deg, #d89404, #b67c04);
+    box-shadow:  27px 27px 53px #936503,
+                 -27px -27px 53px #ffaf05;
 }

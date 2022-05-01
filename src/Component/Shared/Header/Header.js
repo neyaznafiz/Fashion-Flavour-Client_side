@@ -18,7 +18,7 @@ import { MdOutlineDoubleArrow } from "react-icons/md";
 
 
 const Header = () => {
-    
+
     const [user] = useAuthState(auth)
 
     const [open, setOpen] = useState(false)
@@ -35,7 +35,7 @@ const Header = () => {
 
             <div className={`${open ? 'w-72' : 'w-16'} duration-300 h-screen px-2 bg-zinc-800 relative`}>
 
-                <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow/> </span>
+                <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow /> </span>
 
                 <div className='flex gap-x-4 items-center'>
                     <img src="https://i.ibb.co/mFyBtvG/logo.png" alt="" className={` cursor-pointer duration-500 ${open && 'rotate-[360deg]'}`} />
@@ -46,26 +46,30 @@ const Header = () => {
 
                 <nav className='pt-16'>
 
-                    <Link  to='/' className={`text-yellow-600 text-lg mb-4 flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                        <span className='flex items-center'> <FiHome className='text-2xl'/> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>HOME</span> </span>
+                    <Link to='/' className={`text-yellow-600 text-lg mb-4 flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                        <span className='flex items-center'> <FiHome className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>HOME</span> </span>
                     </Link>
 
                     <Link to='/inventory' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                         <span className='flex items-center'> <MdOutlineInventory2 className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>INVENTORY</span> </span>
                     </Link>
 
-                    <Link to='/myproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                        <span className='flex items-center'> <CgShoppingBag className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MY PRODUCTS</span> </span>
-                    </Link>
+                    {user ? <>
+                        <Link to='/myproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                            <span className='flex items-center'> <CgShoppingBag className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MY PRODUCTS</span> </span>
+                        </Link>
 
-                    <Link to='/addproduct' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                        <span className='flex items-center'> <CgAddR className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>ADD PRODUCT</span> </span>
-                    </Link>
+                        <Link to='/addproduct' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                            <span className='flex items-center'> <CgAddR className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>ADD PRODUCT</span> </span>
+                        </Link>
 
-                    <Link to='/manageproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                        <span className='flex items-center'> <MdOutlineManageAccounts className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MANAGE PRODUCTS</span> </span>
-                    </Link>
-
+                        <Link to='/manageproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                            <span className='flex items-center'> <MdOutlineManageAccounts className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MANAGE PRODUCTS</span> </span>
+                        </Link>
+                    </>
+                    :
+                    <></>
+                }
                     <Link to='/blog' className={`text-yellow-600 text-lg mt-4 flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                         <span className='flex items-center'>  <BiNotepad className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>BLOG</span> </span>
                     </Link>
@@ -76,7 +80,7 @@ const Header = () => {
 
                     {!user ?
                         <Link to='/login' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                            <span  className='flex items-center'> <HiOutlineLogout className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>LOGIN</span> </span>
+                            <span className='flex items-center'> <HiOutlineLogout className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>LOGIN</span> </span>
                         </Link>
                         :
                         <Link to='/' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
@@ -87,10 +91,10 @@ const Header = () => {
                 </nav>
 
             </div>
-             
+
         </div>
 
-        
+
     );
 };
 
