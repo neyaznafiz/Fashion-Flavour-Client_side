@@ -1,6 +1,4 @@
 import './App.css';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Header from './Component/Shared/Header/Header';
 import Home from './Component/Pages/Home/Home'
 import Blog from './Component/Pages/Blog/Blog'
@@ -49,7 +47,7 @@ function App() {
 
       </Routes>
 
-      <ToastContainer></ToastContainer>
+   
     </div>
   );
 }
