@@ -7,9 +7,9 @@ const Product = ({ product }) => {
     return (
         <div>
 
-<div className='border grid grid-cols-3  w-4/12 mx-auto'>
+<div className='border w-4/12 mx-auto'>
 
-<div className='grid my-5'>
+<div className='grid'>
 <img src={img} alt="" />
 <span>{name}</span>
 <span>{price}</span>
