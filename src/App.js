@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../src/Style/Style.css'
 import About from './Component/Pages/About/About';
 import { useState } from 'react';
+import Update from './Component/Pages/Products/Update/Update';
 
 function App() {
 
@@ -51,6 +52,12 @@ function App() {
         <Route path='/manageproducts' element={
           <RequireAuth>
             <ManageProducts></ManageProducts>
+          </RequireAuth>
+        }></Route>
+
+        <Route path='/update' element={
+          <RequireAuth>
+            <Update></Update>
           </RequireAuth>
         }></Route>
         
