@@ -35,7 +35,7 @@ const Header = () => {
 
             <div className={`${open ? 'w-72' : 'w-16'} duration-300 h-full px-2 bg-zinc-800 relative`}>
 
-                <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${!open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow /> </span>
+                <span className={`absolute cursor-pointer rounded-full text-3xl bg-zinc-800 text-yellow-600 -right-2 top-20 w-7 ${open && "rotate-180"}`} alt="" onClick={() => setOpen(!open)}> <MdOutlineDoubleArrow /> </span>
 
                 <div className='flex gap-x-4 items-center'>
                     <img src="https://i.ibb.co/mFyBtvG/logo.png" alt="" className={` cursor-pointer duration-500 ${open && 'rotate-[360deg]'}`} />

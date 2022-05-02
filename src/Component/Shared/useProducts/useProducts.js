@@ -9,7 +9,7 @@ const useProducts = () => {
 
 
     useEffect(() => {
-        const url = `https://fashion-flavour.herokuapp.com/dress`
+        const url = `http://localhost:5000/dress`
 
         fetch(url)
             .then(res => res.json())

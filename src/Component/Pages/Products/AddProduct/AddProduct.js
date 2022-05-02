@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const axios = require('axios');
 
 const AddProduct = () => {
@@ -18,10 +19,10 @@ const AddProduct = () => {
             img: event.target.photo.value
         }
 
-        const { data } = await axios.post('https://fashion-flavour.herokuapp.com/dress', product)
+        const { data } = await axios.post('http://localhost:5000/dress', product)
 
         if (!data.success) {
-            return toast.error(data.error)
+             toast.error(data.error)
         }
         else {
             toast.success(data.message)

@@ -19,3 +19,11 @@ box-shadow:  -20px -20px 55px #6f4c02,
     box-shadow:  27px 27px 53px #936503,
                  -27px -27px 53px #ffaf05;
 }
+
+
+.card-shadow{
+    border-radius: 23px;
+background: #ffffff;
+box-shadow:  32px 32px 62px #a1a1a1,
+             -32px -32px 62px #ffffff;
+}
