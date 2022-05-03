@@ -1,48 +1,68 @@
-import React from 'react';
-import { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../../Firebase/firebase.init';
+import Loading from '../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LogIn = () => {
 
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth)
-
+    const emailRef = useRef()
+    const passwordRef = useRef()
     const navigate = useNavigate()
-
+  
+    const [
+      signInWithEmailAndPassword,
+      user,
+      loading,
+      error,
+    ] = useSignInWithEmailAndPassword(auth);
+  
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth)
+  
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+  
+  
     if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
+      toast.error('Please input a valid email and password')
     }
-    if (loading) {
-        return <p>Loading...</p>;
+  
+    if (loading || sending) {
+      return <div className='mx-40 my-32'>
+        <Loading></Loading>
+      </div>
     }
-    // if (user) {
-    //     return (
-    //         <div>
-    //             <p>Signed In User: {user.email}</p>
-    //         </div>
-    //     );
-    // }
-
-    const handleLogIn = event => {
-        event.preventDefault()
-
-        const email = event.target.email.value
-        const password = event.target.password.value
-
-        signInWithEmailAndPassword(email, password)
-        navigate('/')
+  
+    if (user) {
+      navigate(from, { replace: true });
     }
+  
+  
+    const handleLogInWithEmailAndPass = event => {
+      event.preventDefault()
+  
+      const email = emailRef.current.value
+      const password = passwordRef.current.value
+  
+      signInWithEmailAndPassword(email, password)
+  
+    }
+  
+    const resetPassHandle = async event => {
+      event.preventDefault()
+      const email = emailRef.current.value
+      if (email) {
+        await sendPasswordResetEmail(email)
+        toast.success('Your reset password email was sent.')
+      }
+      else {
+        toast.error('Please input your email address.')
+      }
+    }
+  
 
     return (
         <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
@@ -57,25 +77,31 @@ const LogIn = () => {
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">LogIn Here</h3>
 
-                                    <form onSubmit={handleLogIn} className="px-md-2" >
+                                    <form onSubmit={handleLogInWithEmailAndPass} className="px-md-2" >
 
                                         <div className="row">
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <input  ref={emailRef} type="email" name="email" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
                                                 </div>
                                             </div>
-                                            <div className=" mb-4">
+                                            <div className=" mb-3">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <input ref={passwordRef} type="password" name="password" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR PASSWORD</label>
                                                 </div>
+
+                                                <div className='flex justify-end'>
+                                                    <button onClick={resetPassHandle} className='font-semibold mt-1 text-white text-lg'>Forget Password</button>
+                                                </div>
+
                                             </div>
 
                                         </div>
 
                                         <div className='lg:flex lg:items-center lg:justify-between grid grid-cols-1'>
+
                                             <button type="submit" className=" btn btn-lg mb-3 btn-shadow text-gray-300">Log In</button>
 
                                             <p className='text-gray-200 font-semibold lg:flex grid justify-center '>Are you new here ? <Link to='/signup' className='hover:text-white hover:border-b-2 lg:mx-2 mx-auto'>Sign Up</Link></p>
@@ -94,7 +120,7 @@ const LogIn = () => {
 
 
             </section>
-
+            <ToastContainer />
         </div>
 
     );

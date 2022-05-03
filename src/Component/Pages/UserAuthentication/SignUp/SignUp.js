@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../../Firebase/firebase.init';
@@ -17,13 +17,19 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
     const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
 
     if (error) {
-        toast.success(<p>Error: {error.message}</p>)
+        toast.error(<p>Error: {error.message}</p>)
     }
 
     if (loading) {
         return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
     }
 
     const handleSignUp = async event => {
@@ -33,8 +39,6 @@ const SignUp = () => {
         const password = event.target.password.value
 
         await createUserWithEmailAndPassword(email, password)
-        navigate('/')
-
 
     }
 

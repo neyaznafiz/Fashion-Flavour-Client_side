@@ -24,57 +24,61 @@ function App() {
 
     <div>
 
-    <div className='bg-zinc-800 py-3 text-center border-0 gap-0 '>
-                <h2 className='text-2xl font-serif text-yellow-600'>FASHION FLAVOUR</h2>
-            </div>
+      <div className='bg-zinc-800 py-3 text-center border-0 gap-0 '>
+        <h2 className='text-2xl font-serif text-yellow-600'>FASHION FLAVOUR</h2>
+      </div>
 
-    <div className="flex">
-
-    
-     <Header className=''></Header>
-  
-
-      <Routes>
-
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
-
-        <Route path='/myproducts' element={
-          <RequireAuth>
-            <MyProducts></MyProducts>
-          </RequireAuth>
-        }></Route>
-
-        <Route path='/addproduct' element={
-          <RequireAuth>
-            <AddProduct></AddProduct>
-          </RequireAuth>
-        }></Route>
-
-        <Route path='/manageproducts' element={
-          <RequireAuth>
-            <ManageProducts></ManageProducts>
-          </RequireAuth>
-        }></Route>
-
-        <Route path='/update' element={
-          <RequireAuth>
-            <Update></Update>
-          </RequireAuth>
-        }></Route>
-        
-
-        <Route path='/about' element={<About></About>}></Route>
-        <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/login' element={<LogIn></LogIn>}></Route>
-        <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        <Route path='/*' element={<NotFund></NotFund>}></Route>
+      <div className="flex">
 
 
-      </Routes>
+        <Header className=''></Header>
 
-   <ToastContainer></ToastContainer>
-    </div>
+
+        <Routes>
+
+          <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/inventory' element={
+            <RequireAuth>
+              <Inventory></Inventory>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/myproducts' element={
+            <RequireAuth>
+              <MyProducts></MyProducts>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/addproduct' element={
+            <RequireAuth>
+              <AddProduct></AddProduct>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/manageproducts' element={
+            <RequireAuth>
+              <ManageProducts></ManageProducts>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/update' element={
+            <RequireAuth>
+              <Update></Update>
+            </RequireAuth>
+          }></Route>
+
+
+          <Route path='/about' element={<About></About>}></Route>
+          <Route path='/blog' element={<Blog></Blog>}></Route>
+          <Route path='/login' element={<LogIn></LogIn>}></Route>
+          <Route path='/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='/*' element={<NotFund></NotFund>}></Route>
+
+
+        </Routes>
+
+        <ToastContainer></ToastContainer>
+      </div>
     </div>
   );
 }

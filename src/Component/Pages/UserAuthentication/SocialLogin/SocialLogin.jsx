@@ -44,7 +44,7 @@ const SocialLogin = () => {
           <button onClick={() => signInWithGoogle()} className='lg:text-4xl text-6xl'> <AiFillGoogleCircle className=''></AiFillGoogleCircle></button>
         </div>
 
-        <h2 className='font-semibold'>YOU CAN GO WITH SOCIAL ACCOUNT</h2>
+        <h2 className='font-semibold hidden lg:block'>YOU CAN GO WITH SOCIAL ACCOUNT</h2>
 
         <div className='text-gray-300 hover:text-gray-800'>
           <button onClick={() => signInWithFacebook()} className='lg:text-3xl text-5xl'> <BsFacebook className=''></BsFacebook></button>
