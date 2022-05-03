@@ -51,8 +51,12 @@ const Header = () => {
                         <span className='flex items-center'> <FiHome className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>HOME</span> </span>
                     </Link>
 
-                    <Link to='/inventory' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                    {/* <Link to='/inventory' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                         <span className='flex items-center'> <MdOutlineInventory2 className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>INVENTORY</span> </span>
+                    </Link> */}
+
+                    <Link to='/manageproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
+                        <span className='flex items-center'> <MdOutlineManageAccounts className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MANAGE INVENTORY</span> </span>
                     </Link>
 
                     {user ? <>
@@ -64,13 +68,10 @@ const Header = () => {
                             <span className='flex items-center'> <CgAddR className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>ADD PRODUCT</span> </span>
                         </Link>
 
-                        <Link to='/manageproducts' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                            <span className='flex items-center'> <MdOutlineManageAccounts className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>MANAGE PRODUCTS</span> </span>
-                        </Link>
                     </>
-                    :
-                    <></>
-                }
+                        :
+                        <></>
+                    }
                     <Link to='/blog' className={`text-yellow-600 text-lg mt-4 flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                         <span className='flex items-center'>  <BiNotepad className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>BLOG</span> </span>
                     </Link>
