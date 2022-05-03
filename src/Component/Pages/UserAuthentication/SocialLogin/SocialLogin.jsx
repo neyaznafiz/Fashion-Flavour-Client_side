@@ -38,16 +38,16 @@ const SocialLogin = () => {
 
   return (
     <div>
-      <div className=' py-6 px-4 flex justify-between items-center social-shadow'>
+      <div className=' py-2 px-4 flex lg:justify-between justify-center lg:gap-0 gap-16 items-center social-shadow'>
 
         <div className='text-gray-300 hover:text-gray-800'>
-          <button onClick={() => signInWithGoogle()} className='text-4xl'> <AiFillGoogleCircle className=''></AiFillGoogleCircle></button>
+          <button onClick={() => signInWithGoogle()} className='lg:text-4xl text-6xl'> <AiFillGoogleCircle className=''></AiFillGoogleCircle></button>
         </div>
 
         <h2 className='font-semibold'>YOU CAN GO WITH SOCIAL ACCOUNT</h2>
 
         <div className='text-gray-300 hover:text-gray-800'>
-          <button onClick={() => signInWithFacebook()} className='text-3xl '> <BsFacebook className=''></BsFacebook></button>
+          <button onClick={() => signInWithFacebook()} className='lg:text-3xl text-5xl'> <BsFacebook className=''></BsFacebook></button>
         </div>
 
       </div>

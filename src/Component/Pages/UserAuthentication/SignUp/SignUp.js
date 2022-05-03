@@ -40,7 +40,7 @@ navigate('/')
 
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600'>
+        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -55,41 +55,37 @@ navigate('/')
                                     <form onSubmit={handleSignUp} className="px-md-2" >
 
                                         <div className="form-outline mb-4 form-shadow">
-                                            {/* <input type="text" id="form3Example1q" className="form-control" /> */}
-                                            <input type="text" name="name" id="form3Example1q" className='form-control' required />
+                                            <input type="text" name="name" id="form3Example1q" className='form-control py-2' required />
                                             <label className="form-label fixed-top font-semibold px-2 text-white-50 text-sm" for="form3Example1q">NAME</label>
                                         </div>
 
                                         <div className="row">
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    {/* <input type="email" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control' required />
+                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control py-2' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
                                                 </div>
                                             </div>
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    {/* <input type="password" name="password" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control' required />
+                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control py-2' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR PASSWORD</label>
                                                 </div>
                                             </div>
 
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    {/* <input type="password" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control' required />
+                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control py-2' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">COMFIRM YOUR PASSWORD</label>
                                                 </div>
                                             </div>
 
                                         </div>
 
-                                        <div className='flex items-center justify-between'>
-                                            <button type="submit" className="btn btn-lg mb-3 btn-shadow text-gray-300">Sign Up</button>
+                                        <div className='lg:flex lg:items-center lg:justify-between grid grid-cols-1'>
+                                            <button type="submit" className=" btn btn-lg mb-3 btn-shadow text-gray-300">Sign Up</button>
 
-                                            <p className='text-gray-200 font-semibold'>Already have an account ? <Link to='/login' className='hover:text-white hover:border-b-2'>Log In</Link></p>
+                                            <p className='text-gray-200 font-semibold lg:flex grid justify-center '>Already have an account ? <Link to='/login' className='hover:text-white hover:border-b-2 lg:mx-2 mx-auto'>Log In</Link></p>
                                         </div>
 
                                     </form>
