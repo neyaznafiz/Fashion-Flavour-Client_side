@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,6 +15,8 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+
+    const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -35,10 +37,17 @@ const SignUp = () => {
     const handleSignUp = async event => {
         event.preventDefault()
 
-        const email = event.target.email.value
-        const password = event.target.password.value
+        const emailRegx = /\S+@\S+\.\S+/
+        const email = emailRegx.test(event.target.email.value)
+
+        const passRegx = /.{6,}/
+        const password = passRegx.test(event.target.password.value)
 
         await createUserWithEmailAndPassword(email, password)
+
+        updateProfile()
+        toast.success('Your profile updated')
+
 
     }
 
