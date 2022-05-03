@@ -1,6 +1,8 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../../Firebase/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -12,14 +14,12 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth)
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+
+    const navigate = useNavigate()
 
     if (error) {
-        (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
+        toast.success(<p>Error: {error.message}</p>)
     }
 
     if (loading) {
@@ -29,12 +29,11 @@ const SignUp = () => {
     const handleSignUp = async event => {
         event.preventDefault()
 
-        // const name = event.target.name.value
         const email = event.target.email.value
         const password = event.target.password.value
 
-        await createUserWithEmailAndPassword( email, password)
-
+        await createUserWithEmailAndPassword(email, password)
+navigate('/')
 
 
     }
@@ -57,7 +56,7 @@ const SignUp = () => {
 
                                         <div className="form-outline mb-4 form-shadow">
                                             {/* <input type="text" id="form3Example1q" className="form-control" /> */}
-                                            <input type="text" name="name" id="form3Example1q" className='form-control' required/>
+                                            <input type="text" name="name" id="form3Example1q" className='form-control' required />
                                             <label className="form-label fixed-top font-semibold px-2 text-white-50 text-sm" for="form3Example1q">NAME</label>
                                         </div>
 
@@ -65,14 +64,14 @@ const SignUp = () => {
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
                                                     {/* <input type="email" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control' required/>
+                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
                                                 </div>
                                             </div>
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
                                                     {/* <input type="password" name="password" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control' required/>
+                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR PASSWORD</label>
                                                 </div>
                                             </div>
@@ -80,7 +79,7 @@ const SignUp = () => {
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
                                                     {/* <input type="password" className="form-control" id="exampleDatepicker1" /> */}
-                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control' required/>
+                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control' required />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">COMFIRM YOUR PASSWORD</label>
                                                 </div>
                                             </div>
@@ -106,7 +105,7 @@ const SignUp = () => {
 
 
             </section>
-
+            <ToastContainer />
         </div>
 
     );
