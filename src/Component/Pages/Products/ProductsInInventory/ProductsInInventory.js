@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Product = ({ product }) => {
-
-    const { name, price, img, quantity, supplier, description } = product
+const ProductsInInventory = ({inventoryProduct}) => {
+    console.log(inventoryProduct);
+    const { name, price, img, quantity, supplier, description } = inventoryProduct
 
     return (
         <div className=''>
@@ -26,9 +25,9 @@ const Product = ({ product }) => {
                         </div>
 
 
-                        <div className='flex justify-end '>
+                        {/* <div className='flex justify-end '>
                             <Link to='/update' className='card-shadow hover:shadow-lg px-3 py-2 w-5/12'>UPDATE</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -37,4 +36,4 @@ const Product = ({ product }) => {
     );
 };
 
-export default Product;
+export default ProductsInInventory;

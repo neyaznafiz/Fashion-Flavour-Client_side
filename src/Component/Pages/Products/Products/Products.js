@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Products = () => {
 
-    const [product, setProduct] = useProducts()
+    const [product] = useProducts()
 
     return (
         <div className='card-shadow  my-10 mx-10  px-5 pt-5'>
