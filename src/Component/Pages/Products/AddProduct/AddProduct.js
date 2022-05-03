@@ -1,16 +1,19 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../../../Firebase/firebase.init';
 const axios = require('axios');
 
 const AddProduct = () => {
 
-    // const { handleAddProduct } = useForm()
+    const [user] = useAuthState(auth);
 
     const handleAddProduct = async (event) => {
         event.preventDefault()
 
         const product = {
+            email: user.email,
             name: event.target.name.value,
             price: event.target.price.value,
             quantity: event.target.quantity.value,
@@ -22,7 +25,7 @@ const AddProduct = () => {
         const { data } = await axios.post('http://localhost:5000/dress', product)
 
         if (!data.success) {
-             toast.error(data.error)
+            toast.error(data.error)
         }
         else {
             toast.success(data.message)
@@ -42,9 +45,10 @@ const AddProduct = () => {
 
                         <h2 className='text-center text-4xl font-semibold'>ADD YOUR PRODUCT HERE</h2>
 
-                        <input type="text" name='name' placeholder='NAME' className=' px-2 py-2 rounded-md form-shadow border-0 ' required />
-                        <input type="number" name='price' placeholder='PRICE' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
-                        <input type="number" name='quantity' placeholder='QUANTITY' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
+                        <input type="email" name="email" value={user.email} placeholder='EMAIL' className='px-2 py-2 rounded-md form-shadow border-0 text-zinc-800'/>
+                        <input type="text" name='name' placeholder='PRODUCT NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
+                        <input type="number" name='price' placeholder='PRODUCT PRICE' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
+                        <input type="number" name='quantity' placeholder='PRODUCT QUANTITY' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="text" name='suppliername' placeholder='SUPPLIER NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="text" name='photo' placeholder='PRODUCT IMAGE URL' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <textarea type="text" name='description' placeholder='WRITE PRODUCT DESCRIPTION' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
