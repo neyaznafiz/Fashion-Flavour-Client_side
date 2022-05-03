@@ -4,39 +4,58 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LogIn = () => {
     return (
-        <div>
+        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
+            <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
+                <div className="container py-5 h-100">
+                    <div className="row d-flex justify-content-center align-items-center h-100">
+                        <div className="col-lg-5 col-xl-5">
+                            <div className="card form-shadow">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                                    className="w-100 rounded-t-lg" style={{ borderTopLeftRadius: '.3rem' }, { borderTopRightRadius: '.3rem' }}
+                                    alt="Sample photo" />
+                                <div className="card-body">
+                                    <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">LogIn Here</h3>
 
-            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-                <form>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="form-group mb-6">
-                            <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput123" aria-describedby="emailHelp123" placeholder="First name" />
+                                    <form  className="px-md-2" >
+
+                                        <div className="row">
+                                            <div className=" mb-4">
+                                                <div className="form-outline datepicker form-shadow">
+                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
+                                                </div>
+                                            </div>
+                                            <div className=" mb-4">
+                                                <div className="form-outline datepicker form-shadow">
+                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR PASSWORD</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div className='lg:flex lg:items-center lg:justify-between grid grid-cols-1'>
+                                            <button type="submit" className=" btn btn-lg mb-3 btn-shadow text-gray-300">Log In</button>
+
+                                            <p className='text-gray-200 font-semibold lg:flex grid justify-center '>Are you new here ? <Link to='/signup' className='hover:text-white hover:border-b-2 lg:mx-2 mx-auto'>Sign Up</Link></p>
+                                        </div>
+
+                                    </form>
+
+                                    <div>
+                                        <SocialLogin></SocialLogin>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="form-group mb-6">
-                            <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Last name" />
-                        </div>
                     </div>
-                    <div className="form-group mb-6">
-                        <input type="email" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125" placeholder="Email address" />
-                    </div>
-                    <div className="form-group mb-6">                 <input type="password" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput126" placeholder="Password" />
-                    </div>
-
-                    <button type="submit" className=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Sign up</button>
-                </form>
-            </div>
+                </div>
 
 
-            <div>
-                <Link to='/signup' className='hover:text-black'> SIGN UP</Link>
-            </div>
-
-
-            <div className='ml-32'>
-                <SocialLogin></SocialLogin>
-            </div>
-
+            </section>
+            
         </div>
+
     );
 };
 

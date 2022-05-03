@@ -40,7 +40,7 @@ navigate('/')
 
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
+       <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -57,7 +57,7 @@ navigate('/')
                                         <div className="form-outline mb-4 form-shadow">
                                             <input type="text" name="name" id="form3Example1q" className='form-control py-2' required />
                                             <label className="form-label fixed-top font-semibold px-2 text-white-50 text-sm" for="form3Example1q">NAME</label>
-                                        </div>
+                                         </div>
 
                                         <div className="row">
                                             <div className=" mb-4">
