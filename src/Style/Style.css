@@ -27,3 +27,14 @@ background: #ffffff;
 box-shadow:  32px 32px 62px #a1a1a1,
              -32px -32px 62px #ffffff;
 }
+
+
+
+.social-shadow{
+    border-radius: 23px;
+background: linear-gradient(145deg, #b67c04, #d89404);
+box-shadow:  32px 32px 62px #7f5703,
+             -32px -32px 62px #ffbd05;
+}
+
+

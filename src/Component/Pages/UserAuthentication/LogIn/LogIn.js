@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LogIn = () => {
     return (
         <div>
 
-            {/* <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
                 <form>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="form-group mb-6">
@@ -23,7 +24,12 @@ const LogIn = () => {
 
                     <button type="submit" className=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Sign up</button>
                 </form>
-            </div> */}
+            </div>
+
+
+            <div>
+                <Link to='/signup' className='hover:text-black'> SIGN UP</Link>
+            </div>
 
 
             <div className='ml-32'>

@@ -16,9 +16,9 @@ import '../src/Style/Style.css'
 import About from './Component/Pages/About/About';
 import { useState } from 'react';
 import Update from './Component/Pages/Products/Update/Update';
+import SignUp from './Component/Pages/UserAuthentication/SignUp/SignUp';
 
 function App() {
-
 
   return (
 
@@ -30,7 +30,9 @@ function App() {
 
     <div className="flex">
 
-      <Header className=''></Header>
+    
+     <Header className=''></Header>
+  
 
       <Routes>
 
@@ -65,6 +67,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/*' element={<NotFund></NotFund>}></Route>
 
 
