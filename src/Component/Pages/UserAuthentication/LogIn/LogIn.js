@@ -1,8 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../../Firebase/firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LogIn = () => {
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth)
+
+    const navigate = useNavigate()
+
+    if (error) {
+        return (
+            <div>
+                <p>Error: {error.message}</p>
+            </div>
+        );
+    }
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    // if (user) {
+    //     return (
+    //         <div>
+    //             <p>Signed In User: {user.email}</p>
+    //         </div>
+    //     );
+    // }
+
+    const handleLogIn = event => {
+        event.preventDefault()
+
+        const email = event.target.email.value
+        const password = event.target.password.value
+
+        signInWithEmailAndPassword(email, password)
+        navigate('/')
+    }
+
     return (
         <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
@@ -16,7 +57,7 @@ const LogIn = () => {
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">LogIn Here</h3>
 
-                                    <form  className="px-md-2" >
+                                    <form onSubmit={handleLogIn} className="px-md-2" >
 
                                         <div className="row">
                                             <div className=" mb-4">
@@ -53,7 +94,7 @@ const LogIn = () => {
 
 
             </section>
-            
+
         </div>
 
     );
