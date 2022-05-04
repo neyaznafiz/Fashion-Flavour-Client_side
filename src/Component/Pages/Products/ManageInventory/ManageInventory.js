@@ -15,7 +15,7 @@ const ManageInventory = () => {
             </div>
             
             <div className='flex justify-end mb-4'>
-            <Link to='/addproduct' className='card-shadow px-2 py-2 font-semibold'>ADD NEW ITEM</Link>
+            <Link to='/addproduct' className='card-shadow px-3 py-2 font-semibold hover:text-black'>ADD NEW ITEM</Link>
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>

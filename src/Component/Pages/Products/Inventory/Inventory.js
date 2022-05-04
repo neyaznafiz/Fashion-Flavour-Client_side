@@ -25,8 +25,8 @@ const Inventory = () => {
                 }
             </div>
 
-           <div className='flex justify-end mt-5 pb-2'>
-           <Link to='/manageinventory' className='card-shadow hover:shadow-lg px-3 py-2 flex'>MANAGE INVENTORY <MdArrowForwardIos className='mt-1 ml-2'/></Link>
+           <div className='flex justify-end mt-5 pb-4'>
+           <Link to='/manageinventory' className='card-shadow hover:shadow-lg px-3 py-2 flex font-semibold hover:text-black'>MANAGE INVENTORY <MdArrowForwardIos className='mt-1 ml-2'/></Link>
            </div>
 
         </div>
