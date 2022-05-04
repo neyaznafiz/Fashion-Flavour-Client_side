@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
 
-    const { name, price, img, quantity, supplier, description } = product
+    const { _id, name, price, img, quantity, supplier, description } = product
+
+    const navigate = useNavigate()
+    const navigateToUpdate = id => {
+        navigate(`/update/${_id}`)
+    }
 
     return (
         <div className=''>
@@ -25,7 +30,7 @@ const Product = ({ product }) => {
                             </div>
 
                             <div className='flex justify-end h-full items-end'>
-                                <Link to='/update' className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>UPDATE</Link>
+                                <button onClick={()=>navigateToUpdate(_id)}  className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>UPDATE</button>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,17 @@
-import React from 'react';
 
-const ProductsInInventory = ({inventoryProduct}) => {
-    console.log(inventoryProduct);
-    const { name, price, img, quantity, supplier, description } = inventoryProduct
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+const ProductsInInventory = (props) => {
+
+const { inventoryProduct, productDeleteHandle } = props
+
+    const {_id, name, price, img, quantity, supplier, description } = inventoryProduct
+
+    const navigate = useNavigate()
+    const navigateToUpdate = id => {
+        navigate(`/update/${_id}`)
+    }
 
     return (
         <div className=''>
@@ -17,7 +26,7 @@ const ProductsInInventory = ({inventoryProduct}) => {
 
                         <div className='mb-16'>
                             <p className="text-gray-600 text-lg font-bold pb-4">Supplier: {supplier}</p>
-                            <p className="text-gray-700 text-base mb-4"> {description.slice(0, 130)}.... </p>
+                            <p className="text-gray-700 text-base mb-4"> {description?.slice(0, 130)}.... </p>
 
                             <div className='flex justify-between font-semibold'>
                                 <p className="text-gray-600">Price : ${price}</p>
@@ -26,9 +35,14 @@ const ProductsInInventory = ({inventoryProduct}) => {
                         </div>
 
 
-                        <div className='flex justify-end h-full items-end'>
-                                <button className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELETE</button>
-                            </div>
+                        <div className='flex justify-between h-full items-end'>
+                        <div className='pb-2'>
+                            <button onClick={()=>navigateToUpdate(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>UPDATE</button>
+                        </div>
+                        <div className=''>
+                            <button onClick={()=>productDeleteHandle(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELETE</button>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>

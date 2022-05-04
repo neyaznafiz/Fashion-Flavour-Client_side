@@ -16,12 +16,14 @@
         "description": "Wrinkle-free and machine washable to wear straight from the dryer. Side slash pockets and double-welt back pockets.Fabrication makes this your most reached for dress"
     },
     {
-        "name": "Sleeve Women's Skater Dress",
+        "_id": "626e7189288c13423803e361",
+        "name": "Sleeve Women's Skater",
         "price": 399,
-        "Img": "https://i.ibb.co/3zL3GXz/dress-1.jpg",
         "quantity": 95,
-        "supplier": "AETHNICAPLUS#14 D TILJALA SHIBTALA KOLKATA",
-        "description": "The dress colour is thw same as in the pictures and the style too. The material is thin, perfectly made for summer. It is very cute and looks lovely with a belt."
+        "supplier": "Aethnica Plus & Co",
+        "description": "The dress colour is thw same as in the pictures and the style too. The material is thin, perfectly made for summer. It is very cute and looks lovely with a belt.",
+        "img": "https://i.ibb.co/3zL3GXz/dress-1.jpg",
+        "email": " niiyaz5555@gmail.com"
     },
     {
         "name": "Silk Kurta",

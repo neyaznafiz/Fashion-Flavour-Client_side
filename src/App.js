@@ -15,6 +15,7 @@ import About from './Component/Pages/About/About';
 import Update from './Component/Pages/Products/Update/Update';
 import SignUp from './Component/Pages/UserAuthentication/SignUp/SignUp';
 import ManageInventory from './Component/Pages/Products/ManageInventory/ManageInventory';
+import Inventory from './Component/Pages/Products/Inventory/Inventory';
 
 function App() {
 
@@ -35,11 +36,11 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home></Home>}></Route>
-          {/* <Route path='/inventory' element={
+          <Route path='/inventory/:id' element={
             <RequireAuth>
               <Inventory></Inventory>
             </RequireAuth>
-          }></Route> */}
+          }></Route>
 
           <Route path='/myproducts' element={
             <RequireAuth>
@@ -60,6 +61,12 @@ function App() {
           }></Route>
 
           <Route path='/update' element={
+            <RequireAuth>
+              <Update></Update>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/update/:Id' element={
             <RequireAuth>
               <Update></Update>
             </RequireAuth>
