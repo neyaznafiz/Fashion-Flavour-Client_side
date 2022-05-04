@@ -5,18 +5,16 @@ import Blog from './Component/Pages/Blog/Blog'
 import { Route, Routes } from 'react-router-dom'
 import LogIn from './Component/Pages/UserAuthentication/LogIn/LogIn';
 import NotFund from './Component/Shared/NotFund/NotFund';
-import Inventory from './Component/Pages/Products/Inventory/Inventory';
 import RequireAuth from './Component/Pages/RequireAuth/RequireAuth';
 import AddProduct from './Component/Pages/Products/AddProduct/AddProduct';
-import ManageProducts from './Component/Pages/Products/ManageProducts/ManageProducts';
 import MyProducts from './Component/Pages/Products/MyProducts/MyProducts';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../src/Style/Style.css'
 import About from './Component/Pages/About/About';
-import { useState } from 'react';
 import Update from './Component/Pages/Products/Update/Update';
 import SignUp from './Component/Pages/UserAuthentication/SignUp/SignUp';
+import ManageInventory from './Component/Pages/Products/ManageInventory/ManageInventory';
 
 function App() {
 
@@ -24,7 +22,7 @@ function App() {
 
     <div>
 
-      <div className='bg-zinc-800 py-3 text-center border-0 gap-0 '>
+      <div className='bg-zinc-800 py-3 text-center border-0 gap-0 fixed-top z-10 top-0'>
         <h2 className='text-2xl font-serif text-yellow-600'>FASHION FLAVOUR</h2>
       </div>
 
@@ -55,9 +53,9 @@ function App() {
             </RequireAuth>
           }></Route>
 
-          <Route path='/manageproducts' element={
+          <Route path='/manageinventory' element={
             <RequireAuth>
-              <ManageProducts></ManageProducts>
+              <ManageInventory></ManageInventory>
             </RequireAuth>
           }></Route>
 

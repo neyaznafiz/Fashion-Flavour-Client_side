@@ -4,8 +4,13 @@ import Inventory from '../Products/Inventory/Inventory';
 const Home = () => {
     return (
         <div className=''>
-            <Banner></Banner>
+           <div className='pt-16'>
+           <Banner></Banner>
+           </div>
+           
+           <div>
            <Inventory></Inventory>
+           </div>
         </div>
     );
 };

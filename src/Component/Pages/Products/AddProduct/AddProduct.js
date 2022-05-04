@@ -34,7 +34,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600'>
+        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 mt-16'>
 
             <div className='border-double border-8 m-1 h-full border-zinc-800'>
 
