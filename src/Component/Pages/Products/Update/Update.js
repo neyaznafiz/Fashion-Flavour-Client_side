@@ -7,12 +7,14 @@ const Update = () => {
 
     const [product, setProduct] = useState({})
 
-    useEffect(() => {
-        // const url = `http://localhost:5000/dress/${Id}`
-        fetch(`http://localhost:5000/dress/${Id}`)
-        .then(res => res.json())
-        .then(data => setProduct(data))
-    }, [])
+    // useEffect(() => {
+    //     // const url = `http://localhost:5000/dress/${Id}`
+    //     fetch(`http://localhost:5000/dress/${Id}`)
+    //     .then(res => res.json())
+    //     .then(data => setProduct(data))
+    // }, [])
+
+
 
     return (
         <div className='mt-16'>

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useProducts from '../../../Hooks/useProducts/useProducts';
@@ -7,30 +7,41 @@ import ProductsInInventory from './ProductsInInventory/ProductsInInventory';
 const ManageInventory = () => {
     const [product, setProduct] = useProducts()
 
-    const productDeleteHandle = async (id) => {
+    const productDeleteHandle = id => {
 
-        const proceed = window.confirm('Are you sure about delete the product ?')
+            // const proceed = window.confirm('Are you sure?');
+        
+            //     if(proceed){
+            //         const url = `http://localhost:5000/dress/${id}`;
+            //         fetch(url, {
+            //             method: 'DELETE'
+            //         })
+            //         .then(res => res.json())
+            //         .then(data => {
+            //             const exist = product.filter(product => product._id !== id);
+            //                setProduct(exist);
+            //         })
+            //     }
+         
 
-        if (proceed) {
+            if (window.confirm('Are you sure you want to delete?')) {
+                // console.log('deleted');
+                fetch(`http://localhost:5000/dress/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(product),
+                });
+        
+                const exist = product.filter((product) => product._id !== id);
+                setProduct(exist);
+            } else {
+                console.log('cancel');
+            }
+        
 
-            // const { data } = await axios.delete(`http://localhost:5000/dress/${id}`, product)
-            const url = `http://localhost:5000/dress/${id}`
-            // setProduct(data)
-            // console.log(data);
-            fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(product),
-            })
-                .then(res => res.json())
-                .then(data => {
-                    const exist = product.filter(product => product._id !== id);
-                    setProduct(exist)
-                })
-
-        }
+        
 
 
     }

@@ -26,6 +26,16 @@
         "email": " niiyaz5555@gmail.com"
     },
     {
+        "_id":"626e7189288c13423803e363",
+        "name":"Men's Shoe",
+        "price":199,
+        "quantity":45,
+        "supplier":"Clarks LTD",
+        "description":"A shoe designed to take on the Monday through Friday grind. Stretch Go...",
+        "img":"https://i.ibb.co/bmYMt2r/shoe-2.jpg",
+        "email":" niiyaz5555@gmail.com"
+    },
+    {
         "name": "Silk Kurta",
         "price": 555,
         "Img": "https://i.ibb.co/ZJYxB5s/dress-3.jpg",
