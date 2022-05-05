@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductsInInventory = (props) => {
 
@@ -30,7 +30,7 @@ const { inventoryProduct, productDeleteHandle } = props
 
                             <div className='flex justify-between font-semibold'>
                                 <p className="text-gray-600">Price : ${price}</p>
-                                <p className="text-gray-600">Quantity : ${quantity}</p>
+                                <p className="text-gray-600">Quantity : {quantity}</p>
                             </div>
                         </div>
 

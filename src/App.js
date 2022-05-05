@@ -16,6 +16,7 @@ import Update from './Component/Pages/Products/Update/Update';
 import SignUp from './Component/Pages/UserAuthentication/SignUp/SignUp';
 import ManageInventory from './Component/Pages/Products/ManageInventory/ManageInventory';
 import Inventory from './Component/Pages/Products/Inventory/Inventory';
+import Footer from './Component/Shared/Footer/Footer';
 
 function App() {
 
@@ -83,6 +84,10 @@ function App() {
         </Routes>
 
         <ToastContainer></ToastContainer>
+      </div>
+
+      <div>
+      <Footer></Footer>
       </div>
     </div>
   );

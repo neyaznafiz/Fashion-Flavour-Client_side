@@ -1,6 +1,6 @@
 import React from 'react';
-import useProducts from '../../../Shared/useProducts/useProducts';
-import Product from '../Product/Product';
+import useProducts from '../../../Hooks/useProducts/useProducts';
+import Product from './Product/Product';
 import { MdArrowForwardIos } from "react-icons/md";
 import { Link } from 'react-router-dom';
 

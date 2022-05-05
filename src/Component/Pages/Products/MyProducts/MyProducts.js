@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../../Firebase/firebase.init';
-import useProducts from '../../../Shared/useProducts/useProducts';
+import useProducts from '../../../Hooks/useProducts/useProducts';
 
 const MyProducts = () => {
 
@@ -16,7 +16,7 @@ const MyProducts = () => {
 
         const getProductsFilterByEmail = async () => {
             const email = user?.email
-            const url = `http://localhost:5000/mydress?email=${email}`
+            const url = `http://localhost:5000/dress?email=${email}`
 
             const { data } = await axios.get(url)
             setProduct(data)

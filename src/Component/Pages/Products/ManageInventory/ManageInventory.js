@@ -1,30 +1,38 @@
+import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useProducts from '../../../Shared/useProducts/useProducts';
-import ProductsInInventory from '../ProductsInInventory/ProductsInInventory';
+import useProducts from '../../../Hooks/useProducts/useProducts';
+import ProductsInInventory from './ProductsInInventory/ProductsInInventory';
 
 const ManageInventory = () => {
     const [product, setProduct] = useProducts()
 
-    const productDeleteHandle = id => {
+    const productDeleteHandle = async (id) => {
 
         const proceed = window.confirm('Are you sure about delete the product ?')
-        
-        if (proceed) {
-            console.log('delete', id);
-            const url = `http://localhost:5000/dress/${id}`
-            console.log(url)
 
+        if (proceed) {
+
+            // const { data } = await axios.delete(`http://localhost:5000/dress/${id}`, product)
+            const url = `http://localhost:5000/dress/${id}`
+            // setProduct(data)
+            // console.log(data);
             fetch(url, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(product),
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    const exist = product.filter(product => product._id !== id);
+                    setProduct(exist)
                 })
-                
+
         }
-        else { }
+
+
     }
 
     return (
@@ -40,12 +48,11 @@ const ManageInventory = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                 {
-                    product.map(inventoryProduct =>
-                        <ProductsInInventory
-                            key={product._id}
-                            inventoryProduct={inventoryProduct}
-                            productDeleteHandle={productDeleteHandle}>
-                        </ProductsInInventory>
+                    product.map(inventoryProduct => <ProductsInInventory
+                        key={inventoryProduct._id}
+                        inventoryProduct={inventoryProduct}
+                        productDeleteHandle={productDeleteHandle}>
+                    </ProductsInInventory>
                     )
                 }
             </div>
