@@ -22,7 +22,7 @@ const AddProduct = () => {
             img: event.target.photo.value
         }
 
-        const { data } = await axios.post('http://localhost:5000/dress', product)
+        const { data } = await axios.post('https://mighty-journey-99056.herokuapp.com/dress', product)
 
         if (!data.success) {
             toast.error(data.error)
@@ -45,14 +45,14 @@ const AddProduct = () => {
 
                         <h2 className='text-center text-4xl font-semibold font-serif'>ADD YOUR PRODUCT HERE</h2>
 
-                        <input type="email" name="email" value={user.email} placeholder='EMAIL' className='px-2 py-2 rounded-md form-shadow border-0 text-zinc-800 opacity-60 font-semibold'/>
+                        <input type="email" name="email" value={user.email} placeholder='EMAIL' className='px-2 py-2 rounded-md form-shadow border-0 text-zinc-800 opacity-60 font-semibold' />
                         <input type="text" name='name' placeholder='PRODUCT NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="number" name='price' placeholder='PRODUCT PRICE' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="number" name='quantity' placeholder='PRODUCT QUANTITY' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="text" name='suppliername' placeholder='SUPPLIER NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
-                        
+
                         <input type="text" name='photo' placeholder='PRODUCT IMAGE URL' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
-                        
+
                         <textarea type="text" name='description' placeholder='WRITE PRODUCT DESCRIPTION' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
 
                         <input type="submit" value="ADD PRODUCT" className=' bg-zinc-800 text-white py-2 rounded-md border-0 w-5/12 mx-auto btn-shadow' />

@@ -19,7 +19,7 @@ const MyProducts = () => {
 
             const email = user.email;
 
-            const url = `http://localhost:5000/mydress?email=${email}`;
+            const url = `https://mighty-journey-99056.herokuapp.com/mydress?email=${email}`;
             try {
                 const { data } = await axios.get(url);
                 setProduct(data);

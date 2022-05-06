@@ -1,4 +1,5 @@
 // import axios from 'axios';
+import axios from 'axios';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useProducts from '../../../Hooks/useProducts/useProducts';
@@ -9,12 +10,12 @@ const ManageInventory = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useProducts()
 
-    const productDeleteHandle = id => {
+    const productDeleteHandle = async (id) => {
 
         // const proceed = window.confirm('Are you sure?');
 
         //     if(proceed){
-        //         const url = `http://localhost:5000/dress/${id}`;
+        //         const url = `https://mighty-journey-99056.herokuapp.com/dress/${id}`;
         //         fetch(url, {
         //             method: 'DELETE'
         //         })
@@ -26,15 +27,23 @@ const ManageInventory = () => {
         //     }
 
 
+        // if (window.confirm('Are you sure you want to delete?')) {
+        //     console.log('deleted');
+        //     fetch(`https://mighty-journey-99056.herokuapp.com/dress/${id}`, {
+        //         method: 'DELETE',
+        //         headers: {
+        //             'content-type': 'application/json',
+        //         },
+        //         body: JSON.stringify(product),
+        //     })
+        //     const exist = product.filter((product) => product._id !== id);
+        //     setProduct(exist);
+        // } else {
+        //     console.log('cancel');
+        // }
+
         if (window.confirm('Are you sure you want to delete?')) {
-            console.log('deleted');
-            fetch(`http://localhost:5000/dress/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(product),
-            })
+            await axios.delete(`https://mighty-journey-99056.herokuapp.com/dress/${id}`, product)
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {
@@ -52,7 +61,7 @@ const ManageInventory = () => {
 
             <div className='flex justify-between mb-4'>
 
-            <div className=''>
+                <div className=''>
                     <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
                 </div>
 

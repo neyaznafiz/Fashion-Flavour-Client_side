@@ -12,7 +12,7 @@ const Update = () => {
     const { img, name, supplier, description, price, quantity } = product
 
     useEffect(() => {
-        fetch(`http://localhost:5000/dress/${Id}`)
+        fetch(`https://mighty-journey-99056.herokuapp.com/dress/${Id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
