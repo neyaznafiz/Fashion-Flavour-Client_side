@@ -50,7 +50,9 @@ const AddProduct = () => {
                         <input type="number" name='price' placeholder='PRODUCT PRICE' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="number" name='quantity' placeholder='PRODUCT QUANTITY' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="text" name='suppliername' placeholder='SUPPLIER NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
+                        
                         <input type="text" name='photo' placeholder='PRODUCT IMAGE URL' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
+                        
                         <textarea type="text" name='description' placeholder='WRITE PRODUCT DESCRIPTION' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
 
                         <input type="submit" value="ADD PRODUCT" className=' bg-zinc-800 text-white py-2 rounded-md border-0 w-5/12 mx-auto btn-shadow' />

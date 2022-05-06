@@ -52,13 +52,7 @@ const Blog = () => {
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-mdb-parent="#accordionExample">
               <div className="accordion-body text-xl text-gray-700">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                until the collapse plugin adds the appropriate classes that we use to style each
-                element. These classes control the overall appearance, as well as the showing and
-                hiding via CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that just about any HTML
-                can go within the <strong>.accordion-body</strong>, though the transition does
-                limit overflow.
+             <strong>JWT (JavaScript Object Notation), or JSON Web Token,</strong> is an open standard used to share security information between client and server, in short JWT is used as a secure way to authenticate users and share information. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
               </div>
             </div>
           </div>
@@ -96,6 +90,5 @@ export default Blog;
 
 
 /*
-
-
+JWT (JavaScript Object Notation), or JSON Web Token, is an open standard used to share security information between client and server, in short JWT is used as a secure way to authenticate users and share information. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
 */
