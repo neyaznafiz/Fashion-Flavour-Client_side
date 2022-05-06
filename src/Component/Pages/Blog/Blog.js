@@ -97,5 +97,4 @@ export default Blog;
 
 /*
 
-JavaScript is a programming language, which runs in web browsers. JavaScript running any engine like Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome).Mainly using for any client-side activity for a web application. Whereas Node.js is an interpreter or running environment for JavaScript, it's an useful libraries which JavaScript program can use separately. It's mainly used for, like creating or executing a shell script or accessing any hardware-specific information or running any backend job.
 */

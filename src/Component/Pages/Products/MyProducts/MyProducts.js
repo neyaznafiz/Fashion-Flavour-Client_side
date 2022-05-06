@@ -9,25 +9,35 @@ import useProducts from '../../../Hooks/useProducts/useProducts';
 const MyProducts = () => {
 
     const [user] = useAuthState(auth)
-    console.log(user.email);
-    const [product, setProduct] = useProducts()
+    const [product, setProduct] = useProducts([])
+    const navigate = useNavigate();
+
 
     useEffect(() => {
 
         const getProductsFilterByEmail = async () => {
-            const email = user?.email
-            const url = `http://localhost:5000/mydress?email=${email}`
 
-            const { data } = await axios.get(url)
-            setProduct(data)
+            const email = user.email;
 
+            const url = `http://localhost:5000/mydress?email=${email}`;
+            try {
+                const { data } = await axios.get(url);
+                setProduct(data);
+            }
+            catch (error) {
+                console.log(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
         }
         getProductsFilterByEmail()
     }, [user])
 
     return (
         <div className='mt-16'>
-            <h2>your orders: {product.length}</h2>
+            <h2>your product: {product.length}</h2>
             {
 
                 product.map(product => <div key={product._id}>

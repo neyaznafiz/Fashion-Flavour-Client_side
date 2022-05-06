@@ -12,7 +12,6 @@ const Update = () => {
     const { img, name, supplier, description, price, quantity } = product
 
     useEffect(() => {
-        // const url = `http://localhost:5000/dress/${Id}`
         fetch(`http://localhost:5000/dress/${Id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
