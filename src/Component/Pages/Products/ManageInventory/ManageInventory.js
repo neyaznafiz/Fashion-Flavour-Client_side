@@ -25,7 +25,7 @@ const ManageInventory = () => {
          
 
             if (window.confirm('Are you sure you want to delete?')) {
-                // console.log('deleted');
+                console.log('deleted');
                 fetch(`http://localhost:5000/dress/${id}`, {
                     method: 'DELETE',
                     headers: {

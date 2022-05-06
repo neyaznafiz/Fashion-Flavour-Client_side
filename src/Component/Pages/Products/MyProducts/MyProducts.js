@@ -16,7 +16,7 @@ const MyProducts = () => {
 
         const getProductsFilterByEmail = async () => {
             const email = user?.email
-            const url = `http://localhost:5000/dress?email=${email}`
+            const url = `http://localhost:5000/mydress?email=${email}`
 
             const { data } = await axios.get(url)
             setProduct(data)
