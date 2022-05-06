@@ -45,7 +45,7 @@ const AddProduct = () => {
 
                         <h2 className='text-center text-4xl font-semibold font-serif'>ADD YOUR PRODUCT HERE</h2>
 
-                        <input type="email" name="email" value={user.email} placeholder='EMAIL' className='px-2 py-2 rounded-md form-shadow border-0 text-zinc-800 opacity-60'/>
+                        <input type="email" name="email" value={user.email} placeholder='EMAIL' className='px-2 py-2 rounded-md form-shadow border-0 text-zinc-800 opacity-60 font-semibold'/>
                         <input type="text" name='name' placeholder='PRODUCT NAME' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="number" name='price' placeholder='PRODUCT PRICE' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
                         <input type="number" name='quantity' placeholder='PRODUCT QUANTITY' className=' px-2 py-2 rounded-md form-shadow border-0 text-zinc-800' required />
