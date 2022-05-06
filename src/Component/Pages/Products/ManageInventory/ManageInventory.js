@@ -34,8 +34,7 @@ const ManageInventory = () => {
                     'content-type': 'application/json',
                 },
                 body: JSON.stringify(product),
-            });
-
+            })
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {
@@ -48,13 +47,14 @@ const ManageInventory = () => {
         <div className=' grid my-10 mx-auto  px-5 pt-5 '>
 
             <div>
-                <div className=''>
-                    <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
-                </div>
                 <p className='text-center mx-auto text-4xl font-serif font-semibold mb-5 border-b-2 border-zinc-700 w-6/12'>ALL PRODUCTS</p>
             </div>
 
-            <div className='flex justify-end mb-4'>
+            <div className='flex justify-between mb-4'>
+
+            <div className=''>
+                    <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
+                </div>
 
                 <Link to='/addproduct' className='card-shadow px-3 py-2 font-semibold hover:text-black'>ADD NEW ITEM</Link>
             </div>

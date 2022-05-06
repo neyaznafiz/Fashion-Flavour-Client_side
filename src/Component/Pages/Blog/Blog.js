@@ -12,13 +12,13 @@ const Blog = () => {
               <button
                 className="accordion-button text-xl font-semibold text-zinc-800" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
               >
-               <span className='text-zinc-800 text-xl font-semibold'> Difference between javascript and nodejs.</span>
+                <span className='text-zinc-800 text-xl font-semibold'> Difference between javascript and nodejs.</span>
               </button>
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show " aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
               <div className="accordion-body text-xl text-gray-700">
-              <strong>JavaScript is a programming language</strong> which runs in web browsers. JavaScript running any engine like Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome). Mainly use for any client-side activity for a web application. <br /> 
-              Whereas <strong>Node.js is an interpreter or running environment for JavaScript,</strong> it's a useful library that JavaScript programs can use separately. It's mainly used for, like creating or executing a shell script or accessing any hardware-specific information, or running any backend job. Node JS only runs in a V8 engine and a javascript program is written under this Node JS.
+                <strong>JavaScript is a programming language</strong> which runs in web browsers. JavaScript running any engine like Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome). Mainly use for any client-side activity for a web application. <br />
+                Whereas <strong>Node.js is an interpreter or running environment for JavaScript,</strong> it's a useful library that JavaScript programs can use separately. It's mainly used for, like creating or executing a shell script or accessing any hardware-specific information, or running any backend job. Node JS only runs in a V8 engine and a javascript program is written under this Node JS.
               </div>
             </div>
           </div>
@@ -27,18 +27,18 @@ const Blog = () => {
               <button
                 className="accordion-button collapsed text-xl font-semibold text-zinc-800" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
               >
-               <span className='text-zinc-800 text-xl font-semibold'>Differences between sql and nosql databases.</span>
+                <span className='text-zinc-800 text-xl font-semibold'>Differences between sql and nosql databases.</span>
               </button>
             </h2>
             <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-mdb-parent="#accordionExample">
               <div className="accordion-body text-xl text-gray-700">
-                <strong>This is the second item's accordion body.</strong> It is hidden by
-                default, until the collapse plugin adds the appropriate classes that we use to
-                style each element. These classes control the overall appearance, as well as the
-                showing and hiding via CSS transitions. You can modify any of this with custom CSS
-                or overriding our default variables. It's also worth noting that just about any
-                HTML can go within the <strong>.accordion-body</strong>, though the transition
-                does limit overflow.
+                SQL is a standard language for accessing and manipulating databases. NoSQL Database stands for a non-SQL database. NoSQL database doesn't use table to store the data like relational database. <br />
+                <br />
+                <strong>SQL</strong> <br />
+                SQL databases are relational,it use structured query language and have a predefined schema.SQL databases are vertically scalable, it's table-based databases, SQL databases are better for multi-row transactions. <br />
+                <br />
+                <strong>NoSQL</strong> <br />
+                NoSQL databases are non-relational.It's have dynamic schemas for unstructured data.It's a horizontally scalable databases. NoSQL databases are document, key-value, graph, or wide-column stores. NoSQL is better for unstructured data like documents or JSON.
               </div>
             </div>
           </div>
@@ -96,5 +96,6 @@ export default Blog;
 
 
 /*
+
 
 */
