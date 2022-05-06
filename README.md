@@ -21,4 +21,4 @@
 
 # Technologies that used
 
-To create and handle this website there are somany awosome technologies used like `React`, `CSS`, `Tailwind`, `Tailwind Elements`, `MDB`, `react router`, `React Toastify`, `React Icon`, `firebase `,`firebase hooks`, `Node.js`, `MongoDB`, `Heroku`, `Axios` etc.
+To create and handle this website there are somany awosome technologies used like `React` `CSS` `Tailwind` `Tailwind Elements` `MDB` `react router` `React Toastify` `React Icon` `firebase ` `firebase hooks` `Node.js` `MongoDB` `Heroku` `Axios` etc.
