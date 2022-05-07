@@ -1,14 +1,39 @@
 // import axios from 'axios';
 import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import useProducts from '../../../Hooks/useProducts/useProducts';
 import ProductsInInventory from './ProductsInInventory/ProductsInInventory';
 
 const ManageInventory = () => {
 
     const navigate = useNavigate()
-    const [product, setProduct] = useProducts()
+    const [product, setProduct] = useState([])
+    const [pageCount, setPageCount] = useState(0)
+    const [page, setPage] = useState(0)
+    const [size, setSize] = useState(4)
+
+
+    useEffect(() => {
+        const url = `http://localhost:5000/dress?page=${page}&size=${size}`
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data))
+
+    }, [page, size])
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/productCount`)
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count
+                const pages = Math.ceil(count / 4)
+                setPageCount(pages)
+            })
+    }, [])
 
     const productDeleteHandle = async (id) => {
 
@@ -22,7 +47,8 @@ const ManageInventory = () => {
 
     }
 
-    return (
+    return (<div className=' flex mx-auto'>
+
         <div className=' grid my-10 mx-auto  px-5 pt-5 '>
 
             <div>
@@ -47,8 +73,26 @@ const ManageInventory = () => {
                     </ProductsInInventory>
                     )
                 }
+
+
             </div>
         </div>
+
+        <div className='grid items-end pb-9 pl-4'>
+            <div>
+            <select onChange={event => setSize(event.target.value)} className='card-shadow ml-1 py-1 px-2 font-semibold'>
+                    <option value="4" selected className='font-semibold '>4</option>
+                    <option value="8" className='font-semibold '>8</option>
+                    <option value="12" className=' font-semibold '>12</option>
+                </select>
+                {
+                    [...Array(pageCount).keys()].map(number =>
+                        <button onClick={() => setPage(number)} className={page === number ? 'text-zinc-800 m-2 px-4 form-shadow font-semibold flex' : 'm-2 px-4 card-shadow font-semibold flex'}>{number +1}</button>)
+                }
+            </div>
+        </div>
+    </div>
+
     );
 };
 

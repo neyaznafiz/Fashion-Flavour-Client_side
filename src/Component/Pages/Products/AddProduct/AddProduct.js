@@ -23,12 +23,12 @@ const AddProduct = () => {
         }
 
         const { data } = await axios.post('http://localhost:5000/dress', product)
-
-        if (!data.success) {
-            toast.error(data.error)
+console.log(data);
+        if (data.insertedId) {
+            toast.success('Your product added successfully.')
         }
         else {
-            toast.success(data.message)
+            toast.error(data.error)
         }
 
     }

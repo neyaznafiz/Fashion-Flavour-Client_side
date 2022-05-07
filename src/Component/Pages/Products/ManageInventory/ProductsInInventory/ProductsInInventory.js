@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductsInInventory = (props) => {
 
-const { inventoryProduct, productDeleteHandle } = props
+    const { inventoryProduct, productDeleteHandle } = props
 
-    const {_id, name, price, img, quantity, supplier, description } = inventoryProduct
+    const { _id, name, price, img, quantity, supplier, description } = inventoryProduct
 
     const navigate = useNavigate()
     const navigateToUpdate = id => {
@@ -36,12 +36,12 @@ const { inventoryProduct, productDeleteHandle } = props
 
 
                         <div className='flex justify-between h-full items-end'>
-                        <div className='pb-2'>
-                            <button onClick={()=>navigateToUpdate(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>UPDATE</button>
-                        </div>
-                        <div className=''>
-                            <button onClick={()=>productDeleteHandle(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELETE</button>
-                        </div>
+                            <div className='pb-2'>
+                                <button onClick={() => navigateToUpdate(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>UPDATE</button>
+                            </div>
+                            <div className=''>
+                                <button onClick={() => productDeleteHandle(_id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELETE</button>
+                            </div>
                         </div>
                     </div>
                 </div>

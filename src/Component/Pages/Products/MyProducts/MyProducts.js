@@ -10,6 +10,7 @@ const MyProducts = () => {
 
     const [user] = useAuthState(auth)
     const [product, setProduct] = useProducts([])
+
     const navigate = useNavigate();
 
 
@@ -36,18 +37,61 @@ const MyProducts = () => {
             }
         }
         getProductsFilterByEmail()
-    }, [user])
+    }, [user, product])
+
+    const productDeleteHandle = async (id) => {
+
+        if (window.confirm('Are you sure you want to delete?')) {
+            await axios.delete(`http://localhost:5000/dress/${id}`, product)
+            const exist = product.filter((product) => product._id !== id);
+            setProduct(exist);
+        } else {
+            console.log('cancel');
+        }
+
+    }
 
     return (
-        <div className='mt-16'>
-            <h2>your product: {product.length}</h2>
-            {
+        <div className='my-16 grid mx-auto'>
 
-                product.map(product => <div key={product._id}>
-                    <p>{product.email}</p>
-                    <p>{product.name}</p>
-                </div>)
-            }
+            <div className='my-20 mx-auto '>
+                <h2 className='text-center text-4xl border-b-2 px-5 py-3'>YOUR PRODUCT - {product.length} </h2>
+            </div>
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+
+                {
+
+                    product.map(product => <div key={product._id} className=''>
+
+
+                        <div className="flex justify-center ">
+                            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg hover-zoom">
+                                <img className=" w-full h-48 lg:h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg hover:rounded-lg" src={product.img} alt="" />
+                                <div className="p-6 flex flex-col justify-start">
+                                    <h5 className="text-gray-900 text-3xl font-medium mb-1 font-serif">{product.name}</h5>
+
+                                    <div className=''>
+                                        <p className="text-gray-600 text-lg font-bold pb-4">Supplier: {product.supplier}</p>
+                                        <p className="text-gray-700 text-base mb-4"> {product.description.slice(0, 110)}.... </p>
+
+                                        <div className='flex justify-between font-semibold'>
+                                            <p className="text-gray-600">Price : ${product.price}</p>
+                                            <p className="text-gray-600">Quantity : {product.quantity}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex justify-end h-full items-end'>
+                                        <button onClick={() => productDeleteHandle(product._id)} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELETE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>)
+                }
+
+            </div>
         </div>
     );
 };

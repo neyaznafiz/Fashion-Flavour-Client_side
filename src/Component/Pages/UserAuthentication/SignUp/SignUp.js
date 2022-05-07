@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -22,11 +23,11 @@ const SignUp = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
-    if (error) {
-        toast.error(<p>Error: {error.message}</p>)
-    }
+    // if (error || updateProfileError) {
+    //     toast.error(<p>Error: {error.message}</p>)
+    // }
 
-    if (loading) {
+    if (loading || updating ) {
         return <Loading></Loading>
     }
 
@@ -44,6 +45,8 @@ const SignUp = () => {
         const password = passRegx.test(event.target.password.value)
 
         await createUserWithEmailAndPassword(email, password)
+        // const { data } = await axios.post(`http://localhost:5000/signup`, {email})
+        // localStorage.setItem('accessJwtToken', data.accessJwtToken)
 
         updateProfile()
         toast.success('Your profile updated')
@@ -55,13 +58,11 @@ const SignUp = () => {
     return (
         <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
-                <div className="container py-5 h-100">
+                <div className="container pt-24 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-lg-5 col-xl-5">
                             <div className="card form-shadow">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-                                    className="w-100 rounded-t-lg" style={{ borderTopLeftRadius: '.3rem' }, { borderTopRightRadius: '.3rem' }}
-                                    alt="Sample photo" />
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"className="w-100 rounded-t-lg " alt="Sample photo" />
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">SignUp Here</h3>
 
