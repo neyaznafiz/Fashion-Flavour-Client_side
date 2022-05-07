@@ -2,7 +2,8 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { MdArrowForwardIos } from 'react-icons/md';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../../Firebase/firebase.init';
 import useProducts from '../../../Hooks/useProducts/useProducts';
 
@@ -54,9 +55,20 @@ const MyProducts = () => {
     return (
         <div className='my-16 grid mx-auto'>
 
-            <div className='my-20 mx-auto '>
+
+            <div className='my-16 mx-auto '>
                 <h2 className='text-center text-4xl border-b-2 px-5 py-3'>YOUR PRODUCT - {product.length} </h2>
             </div>
+
+           <div className='flex justify-between'>
+           <div className=''>
+                <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
+            </div>
+
+            <div className=' pb-4'>
+                <Link to='/manageinventory' className='card-shadow hover:shadow-lg px-3 py-2 flex font-semibold hover:text-black'>MANAGE INVENTORY <MdArrowForwardIos className='mt-1 ml-2' /></Link>
+            </div>
+           </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../../Firebase/firebase.init';
@@ -8,6 +9,7 @@ const axios = require('axios');
 const AddProduct = () => {
 
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const handleAddProduct = async (event) => {
         event.preventDefault()
@@ -23,25 +25,31 @@ const AddProduct = () => {
         }
 
         const { data } = await axios.post('http://localhost:5000/dress', product)
-console.log(data);
+        console.log(data);
         if (data.insertedId) {
             toast.success('Your product added successfully.')
+            
         }
         else {
             toast.error(data.error)
         }
+        event.target.reset()
 
     }
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 mt-16'>
+        <div className=' lg:w-full h-screen bg-yellow-600 border-8 border-yellow-600 mt-16'>
 
             <div className='border-double border-8 m-1 h-full border-zinc-800'>
+
+            <div className='py-4 px-4'>
+                <button onClick={() => navigate(-1)} className='form-shadow py-2 px-4 font-semibold'>BACK</button>
+            </div>
 
                 <div className='my-8  flex justify-center'>
 
 
-                    <form onSubmit={handleAddProduct} className=' text-white grid w-4/12 gap-4 py-10 px-10 form-shadow'>
+                    <form onSubmit={handleAddProduct} className=' text-white grid lg:w-4/12 gap-4 py-10 px-10 form-shadow'>
 
                         <h2 className='text-center text-4xl font-semibold font-serif'>ADD YOUR PRODUCT HERE</h2>
 

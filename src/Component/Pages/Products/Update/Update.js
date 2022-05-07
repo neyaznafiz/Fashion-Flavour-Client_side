@@ -22,6 +22,32 @@ const Update = () => {
     }, [])
 
 
+    const handleQuantityUpdate = event => {
+        event.preventDefault()
+
+        const addStock = event.target.restock.value
+        console.log(addStock);
+
+        const updatedQuantity = {addStock}
+
+
+        fetch(`http://localhost:5000/dress`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedQuantity)
+        })
+            .then(res => res.json())
+            .then(data => setProduct(data))
+     
+        // const productQuantity = {quantity}
+        // console.log(productQuantity);
+        // const product = {...quantity + addStock}
+        // console.log(product);
+    }
+
+
 
     return (
         <div className='mt-16 w-full'>
@@ -45,10 +71,10 @@ const Update = () => {
 
 
                         <div className='lg:flex lg:justify-between mt-3 h-full items-end'>
-                            <div className='grid'>
+                            <form onSubmit={handleQuantityUpdate} className='grid'>
                                 <input type="number" name="restock" placeholder='RESTOCK' id="" className=' card-shadow mb-2 px-2 py-2' />
                                 <button className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>ADD STOCK</button>
-                            </div>
+                            </form>
                             <div className='flex justify-center mt-2'>
                                 <button className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELIVERY</button>
                             </div>
