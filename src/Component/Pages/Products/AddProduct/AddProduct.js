@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../../Firebase/firebase.init';
 const axios = require('axios');
@@ -22,7 +22,7 @@ const AddProduct = () => {
             img: event.target.photo.value
         }
 
-        const { data } = await axios.post('https://mighty-journey-99056.herokuapp.com/dress', product)
+        const { data } = await axios.post('http://localhost:5000/dress', product)
 
         if (!data.success) {
             toast.error(data.error)
@@ -61,6 +61,8 @@ const AddProduct = () => {
                 </div>
 
             </div>
+
+            <ToastContainer />
 
         </div>
     );

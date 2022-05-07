@@ -19,13 +19,16 @@ const MyProducts = () => {
 
             const email = user.email;
 
-            const url = `https://mighty-journey-99056.herokuapp.com/mydress?email=${email}`;
+            const url = `http://localhost:5000/mydress?email=${email}`;
             try {
-                const { data } = await axios.get(url);
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessJwtToken')}`
+                    }
+                });
                 setProduct(data);
             }
             catch (error) {
-                console.log(error.message);
                 if (error.response.status === 401 || error.response.status === 403) {
                     signOut(auth);
                     navigate('/login')

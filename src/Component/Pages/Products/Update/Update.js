@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -11,8 +12,11 @@ const Update = () => {
 
     const { img, name, supplier, description, price, quantity } = product
 
+    // const { data } = axios.get(`http://localhost:5000/dress/${Id}`, product)
+    // setProduct(data)
+
     useEffect(() => {
-        fetch(`https://mighty-journey-99056.herokuapp.com/dress/${Id}`)
+        fetch(`http://localhost:5000/dress/${Id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])

@@ -12,38 +12,8 @@ const ManageInventory = () => {
 
     const productDeleteHandle = async (id) => {
 
-        // const proceed = window.confirm('Are you sure?');
-
-        //     if(proceed){
-        //         const url = `https://mighty-journey-99056.herokuapp.com/dress/${id}`;
-        //         fetch(url, {
-        //             method: 'DELETE'
-        //         })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             const exist = product.filter(product => product._id !== id);
-        //                setProduct(exist);
-        //         })
-        //     }
-
-
-        // if (window.confirm('Are you sure you want to delete?')) {
-        //     console.log('deleted');
-        //     fetch(`https://mighty-journey-99056.herokuapp.com/dress/${id}`, {
-        //         method: 'DELETE',
-        //         headers: {
-        //             'content-type': 'application/json',
-        //         },
-        //         body: JSON.stringify(product),
-        //     })
-        //     const exist = product.filter((product) => product._id !== id);
-        //     setProduct(exist);
-        // } else {
-        //     console.log('cancel');
-        // }
-
         if (window.confirm('Are you sure you want to delete?')) {
-            await axios.delete(`https://mighty-journey-99056.herokuapp.com/dress/${id}`, product)
+            await axios.delete(`http://localhost:5000/dress/${id}`, product)
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -12,57 +13,58 @@ const LogIn = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const navigate = useNavigate()
-  
+
     const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
     ] = useSignInWithEmailAndPassword(auth);
-  
+
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth)
-  
+
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
-  
-  
+
+
     if (error) {
-      toast.error('Please input a valid email and password')
+        toast.error('Please input a valid email and password')
     }
-  
+
     if (loading || sending) {
-      return <div className='mx-40 my-32'>
-        <Loading></Loading>
-      </div>
+        return <div className='mx-40 my-32'>
+            <Loading></Loading>
+        </div>
     }
-  
+
     if (user) {
-      navigate(from, { replace: true });
+        navigate(from, { replace: true });
     }
-  
-  
-    const handleLogInWithEmailAndPass = event => {
-      event.preventDefault()
-  
-      const email = emailRef.current.value
-      const password = passwordRef.current.value
-  
-      signInWithEmailAndPassword(email, password)
-  
+
+
+    const handleLogInWithEmailAndPass = async event => {
+        event.preventDefault()
+
+        const email = emailRef.current.value
+        const password = passwordRef.current.value
+
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post(`http://localhost:5000/login`, {email})
+       localStorage.setItem('accessJwtToken', data.accessJwtToken)
     }
-  
+
     const resetPassHandle = async event => {
-      event.preventDefault()
-      const email = emailRef.current.value
-      if (email) {
-        await sendPasswordResetEmail(email)
-        toast.success('Your reset password email was sent.')
-      }
-      else {
-        toast.error('Please input your email address.')
-      }
+        event.preventDefault()
+        const email = emailRef.current.value
+        if (email) {
+            await sendPasswordResetEmail(email)
+            toast.success('Your reset password email was sent.')
+        }
+        else {
+            toast.error('Please input your email address.')
+        }
     }
-  
+
 
     return (
         <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
@@ -82,7 +84,7 @@ const LogIn = () => {
                                         <div className="row">
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input  ref={emailRef} type="email" name="email" id="exampleDatepicker1" className='form-control py-2' />
+                                                    <input ref={emailRef} type="email" name="email" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
                                                 </div>
                                             </div>
