@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { MdArrowForwardIos } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import ProductsInInventory from './ProductsInInventory/ProductsInInventory';
 
@@ -61,7 +62,15 @@ const ManageInventory = () => {
                     <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
                 </div>
 
-                <Link to='/addproduct' className='card-shadow px-3 py-2 font-semibold hover:text-black'>ADD NEW ITEM</Link>
+
+                <div className='flex gap-x-3'>
+                    <div className=' pb-4'>
+                        <Link to='/myproducts' className='card-shadow hover:shadow-lg px-3 py-2 flex font-semibold hover:text-black'>MY PRODUCTS <MdArrowForwardIos className='mt-1 ml-2' /></Link>
+                    </div>
+                    <div>
+                        <Link to='/addproduct' className='card-shadow px-3 py-2 flex font-semibold hover:text-black'>ADD NEW ITEM <MdArrowForwardIos className='mt-1 ml-2' /></Link>
+                    </div>
+                </div>
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -80,14 +89,14 @@ const ManageInventory = () => {
 
         <div className='grid items-end pb-9 pl-4'>
             <div>
-            <select onChange={event => setSize(event.target.value)} className='card-shadow ml-1 py-1 px-2 font-semibold'>
+                <select onChange={event => setSize(event.target.value)} className='card-shadow ml-1 py-1 px-2 font-semibold'>
                     <option value="4" selected className='font-semibold '>4</option>
                     <option value="8" className='font-semibold '>8</option>
                     <option value="12" className=' font-semibold '>12</option>
                 </select>
                 {
                     [...Array(pageCount).keys()].map(number =>
-                        <button onClick={() => setPage(number)} className={page === number ? 'text-zinc-800 m-2 px-4 form-shadow font-semibold flex' : 'm-2 px-4 card-shadow font-semibold flex'}>{number +1}</button>)
+                        <button onClick={() => setPage(number)} className={page === number ? 'text-zinc-800 m-2 px-4 form-shadow font-semibold flex' : 'm-2 px-4 card-shadow font-semibold flex'}>{number + 1}</button>)
                 }
             </div>
         </div>

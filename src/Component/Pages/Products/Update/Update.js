@@ -1,3 +1,4 @@
+import { async } from '@firebase/util';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -23,30 +24,87 @@ const Update = () => {
 
 
     const handleQuantityUpdate = event => {
-        event.preventDefault()
+        // event.preventDefault()
 
-        const addStock = event.target.restock.value
-        console.log(addStock);
+        // const addStock = event.target.restock.value
+        // console.log(addStock);
+        // event.target.reset()
 
-        const updatedQuantity = {addStock}
+        // // const updatedQuantity = { addStock }
+
+        // const url = `http://localhost:5000/dress/${Id}`
+        // fetch(url, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: 'updatedQuantity'
+        // })
+        //     .then(res => res.json())
+        //     .then(data => setProduct(data))
 
 
-        fetch(`http://localhost:5000/dress`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updatedQuantity)
-        })
-            .then(res => res.json())
-            .then(data => setProduct(data))
-     
         // const productQuantity = {quantity}
         // console.log(productQuantity);
         // const product = {...quantity + addStock}
         // console.log(product);
+
+
+
     }
 
+
+    // const handleDelivery = () => {
+    //     const newQuantity = parseInt(quantity) - 1
+    //     console.log(newQuantity);
+    //     const { productQuantity } = newQuantity
+    //     const url = `http://localhost:5000/dress/${Id}`
+
+    //     // const {data} = await axios.patch(url, newQuantity)
+    //     // setProduct(data)
+
+    //     fetch(url, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(productQuantity)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setProduct(data)
+    //             alert('quantity updatted')
+    //         })
+
+    // }
+
+   
+        const handleDelivery = () => {
+
+                const newQuantity = parseInt(quantity) - 1
+                console.log(newQuantity);
+                const { productQuantity } = newQuantity
+                const url = `http://localhost:5000/dress/${Id}`
+        
+                // const {data} = await axios.patch(url, newQuantity)
+                // setProduct(data)
+        
+                fetch(url, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(productQuantity)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setProduct(data)
+                        alert('quantity updatted')
+                    })
+        
+                    
+                }
+               
 
 
     return (
@@ -76,7 +134,7 @@ const Update = () => {
                                 <button className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>ADD STOCK</button>
                             </form>
                             <div className='flex justify-center mt-2'>
-                                <button className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELIVERY</button>
+                                <button onClick={handleDelivery} className='card-shadow text-center hover:shadow-lg hover:text-black font-semibold px-3 py-2'>DELIVERY</button>
                             </div>
                         </div>
                     </div>
