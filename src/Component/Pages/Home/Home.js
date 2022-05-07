@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import BestSeller from '../BestSeller/BestSeller';
+import ForCoustomer from '../ForCoustomer/ForCoustomer';
 import Inventory from '../Products/Inventory/Inventory';
 const Home = () => {
     return (
@@ -15,6 +16,10 @@ const Home = () => {
 
            <div>
                <BestSeller></BestSeller>
+           </div>
+
+           <div>
+               <ForCoustomer></ForCoustomer>
            </div>
         </div>
     );
