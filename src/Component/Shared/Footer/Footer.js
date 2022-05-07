@@ -8,8 +8,8 @@ const Footer = () => {
         <div className=''>
             <footer className=" bg-zinc-800 text-yellow-600 text-center h-full ">
 
-                <div className="container p-4 pb-0">
-                    <section className="mb-4">
+                <div className="container p-4 ">
+                    {/* <section className="mb-4"> */}
                         <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"> <RiFacebookFill className='text-2xl ml-1 mt-1'/></a>
 
                         <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
@@ -18,7 +18,7 @@ const Footer = () => {
                         <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
                         ><RiInstagramFill className='text-2xl mx-1 mt-1'/></a>
 
-                    </section>
+                    {/* </section> */}
                     {/* <!-- Section: Social media --> */}
                 </div>
               

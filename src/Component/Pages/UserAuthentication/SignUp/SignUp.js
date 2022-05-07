@@ -1,3 +1,4 @@
+import { async } from '@firebase/util';
 import axios from 'axios';
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -27,7 +28,7 @@ const SignUp = () => {
     //     toast.error(<p>Error: {error.message}</p>)
     // }
 
-    if (loading || updating ) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
@@ -35,18 +36,21 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
 
-    const handleSignUp = async event => {
+    const handleSignUp =async event => {
         event.preventDefault()
 
-        const emailRegx = /\S+@\S+\.\S+/
-        const email = emailRegx.test(event.target.email.value)
+        // const emailRegx = /\S+@\S+\.\S+/
+        // const email = emailRegx.test(event.target.email.value)
 
-        const passRegx = /.{6,}/
-        const password = passRegx.test(event.target.password.value)
+        // const passRegx = /.{6,}/
+        // const password = passRegx.test(event.target.password.value)
+        const email = event.target.email.value
+        const password = event.target.password.value
 
-        await createUserWithEmailAndPassword(email, password)
-        // const { data } = await axios.post(`http://localhost:5000/signup`, {email})
-        // localStorage.setItem('accessJwtToken', data.accessJwtToken)
+        createUserWithEmailAndPassword(email, password)
+
+        const { data } = await axios.post(`http://localhost:5000/signup`, {email})
+        localStorage.setItem('accessJwtToken', data.accessJwtToken)
 
         updateProfile()
         toast.success('Your profile updated')
@@ -56,40 +60,40 @@ const SignUp = () => {
 
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
+        <div className=' w-full pb-20 bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
                 <div className="container pt-24 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-lg-5 col-xl-5">
                             <div className="card form-shadow">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"className="w-100 rounded-t-lg " alt="Sample photo" />
+                                <img src="https://i.ibb.co/MVtZQR1/img3.jpg" className="w-100 rounded-t-lg" />
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">SignUp Here</h3>
 
                                     <form onSubmit={handleSignUp} className="px-md-2" >
 
                                         <div className="form-outline mb-4 form-shadow">
-                                            <input type="text" name="name" id="form3Example1q" className='form-control py-2' required />
+                                            <input type="text" name="name" id="form3Example1q" className='form-control py-2' />
                                             <label className="form-label fixed-top font-semibold px-2 text-white-50 text-sm" for="form3Example1q">NAME</label>
                                         </div>
 
                                         <div className="row">
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <input type="email" name="email" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR EMAIL</label>
                                                 </div>
                                             </div>
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <input type="password" name="password" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">TYPE YOUR PASSWORD</label>
                                                 </div>
                                             </div>
 
                                             <div className=" mb-4">
                                                 <div className="form-outline datepicker form-shadow">
-                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control py-2' required />
+                                                    <input type="password" name="confirm-password" id="exampleDatepicker1" className='form-control py-2' />
                                                     <label for="exampleDatepicker1" className="form-label font-semibold px-2 text-white-50 text-sm">COMFIRM YOUR PASSWORD</label>
                                                 </div>
                                             </div>

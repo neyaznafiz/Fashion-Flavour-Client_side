@@ -73,7 +73,7 @@ const LogIn = () => {
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-lg-5 col-xl-5">
                             <div className="card form-shadow">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                                <img src="https://i.ibb.co/MVtZQR1/img3.jpg"
                                     className="w-100 rounded-t-lg" style={{ borderTopLeftRadius: '.3rem' }, { borderTopRightRadius: '.3rem' }}
                                     alt="Sample photo" />
                                 <div className="card-body">
