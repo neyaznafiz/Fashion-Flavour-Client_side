@@ -8,9 +8,7 @@ const Update = () => {
     const navigate = useNavigate()
 
     const { Id } = useParams()
-
     const [product, setProduct] = useState({})
-
     const [newQuantity, setNewQuantity] = useState(0)
 
     const { img, name, supplier, description, price, quantity } = product
@@ -37,6 +35,7 @@ const Update = () => {
 
         const updatedData = + restock + newQuantity
         setNewQuantity(updatedData)
+
         const url = `https://cryptic-stream-11517.herokuapp.com/dress/${Id}`
 
         fetch(url, {
@@ -62,6 +61,7 @@ const Update = () => {
         if (newQuantity > 0) {
             const updatedData = newQuantity - 1
             setNewQuantity(updatedData)
+
             const url = `https://cryptic-stream-11517.herokuapp.com/dress/${Id}`
 
             fetch(url, {
@@ -74,7 +74,7 @@ const Update = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    // set(data)
+                    // setProduct(data)
                     // alert('quantity updatted')
                 })
         }

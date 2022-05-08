@@ -48,9 +48,9 @@ const ManageInventory = () => {
 
     }
 
-    return (<div className=' flex mx-auto'>
+    return (<div className=' flex lg:mx-auto'>
 
-        <div className=' grid my-10 mx-auto  px-5 pt-5 '>
+        <div className=' grid my-10 lg:mx-auto  px-5 pt-5 '>
 
             <div>
                 <p className='text-center mx-auto text-4xl font-serif font-semibold mb-5 border-b-2 border-zinc-700 w-6/12'>ALL PRODUCTS</p>
