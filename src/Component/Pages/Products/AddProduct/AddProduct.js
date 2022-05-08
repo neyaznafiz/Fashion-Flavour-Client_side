@@ -27,7 +27,7 @@ const AddProduct = () => {
         const { data } = await axios.post('https://cryptic-stream-11517.herokuapp.com//dress', product)
         console.log(data);
         if (data.insertedId) {
-            toast.success('Your product added successfully.')
+            alert('Your product added successfully.')
 
         }
         else {

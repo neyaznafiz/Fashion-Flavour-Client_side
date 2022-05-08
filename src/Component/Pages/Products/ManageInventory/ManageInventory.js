@@ -39,7 +39,7 @@ const ManageInventory = () => {
     const productDeleteHandle = async (id) => {
 
         if (window.confirm('Are you sure you want to delete?')) {
-            await axios.delete(`https://cryptic-stream-11517.herokuapp.com/dress/${id}`, product)
+            await axios.delete(`https://localhost:5000/dress/${id}`, product)
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {
