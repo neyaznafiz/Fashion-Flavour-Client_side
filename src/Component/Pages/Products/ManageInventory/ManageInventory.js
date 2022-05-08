@@ -17,7 +17,7 @@ const ManageInventory = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/dress?page=${page}&size=${size}`
+        const url = `https://cryptic-stream-11517.herokuapp.com/dress?page=${page}&size=${size}`
 
         fetch(url)
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ManageInventory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productCount`)
+        fetch(`https://cryptic-stream-11517.herokuapp.com/productCount`)
             .then(res => res.json())
             .then(data => {
                 const count = data.count
@@ -39,7 +39,7 @@ const ManageInventory = () => {
     const productDeleteHandle = async (id) => {
 
         if (window.confirm('Are you sure you want to delete?')) {
-            await axios.delete(`http://localhost:5000/dress/${id}`, product)
+            await axios.delete(`https://cryptic-stream-11517.herokuapp.com/dress/${id}`, product)
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {

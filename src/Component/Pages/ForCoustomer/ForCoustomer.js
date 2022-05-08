@@ -7,7 +7,8 @@ const ForCoustomer = () => {
     const handleSubscribe = event => {
 
         // const email = event.target.email.value
-            toast.success('Thanks for your subscription.')
+        toast.success('Thanks for your subscription.')
+        event.target.reset()
     }
 
     return (

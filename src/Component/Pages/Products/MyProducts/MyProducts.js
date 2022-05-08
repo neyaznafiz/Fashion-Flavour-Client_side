@@ -21,7 +21,7 @@ const MyProducts = () => {
 
             const email = user.email;
 
-            const url = `http://localhost:5000/mydress?email=${email}`;
+            const url = `https://cryptic-stream-11517.herokuapp.com/mydress?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -43,7 +43,7 @@ const MyProducts = () => {
     const productDeleteHandle = async (id) => {
 
         if (window.confirm('Are you sure you want to delete?')) {
-            await axios.delete(`http://localhost:5000/dress/${id}`, product)
+            await axios.delete(`https://cryptic-stream-11517.herokuapp.com/dress/${id}`, product)
             const exist = product.filter((product) => product._id !== id);
             setProduct(exist);
         } else {
@@ -60,15 +60,15 @@ const MyProducts = () => {
                 <h2 className='text-center text-4xl border-b-2 px-5 py-3'>YOUR PRODUCTS - {product.length} </h2>
             </div>
 
-           <div className='flex justify-between'>
-           <div className=''>
-                <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
-            </div>
+            <div className='flex justify-between'>
+                <div className=''>
+                    <button onClick={() => navigate(-1)} className='card-shadow py-2 px-4 font-semibold'>BACK</button>
+                </div>
 
-            <div className=' pb-4'>
-                <Link to='/manageinventory' className='card-shadow hover:shadow-lg px-3 py-2 flex font-semibold hover:text-black'>MANAGE INVENTORY <MdArrowForwardIos className='mt-1 ml-2' /></Link>
+                <div className=' pb-4'>
+                    <Link to='/manageinventory' className='card-shadow hover:shadow-lg px-3 py-2 flex font-semibold hover:text-black'>MANAGE INVENTORY <MdArrowForwardIos className='mt-1 ml-2' /></Link>
+                </div>
             </div>
-           </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
 
@@ -85,7 +85,7 @@ const MyProducts = () => {
 
                                     <div className=''>
                                         <p className="text-gray-600 text-lg font-bold pb-4">Supplier: {product.supplier}</p>
-                                        <p className="text-gray-700 text-base mb-4"> {product.description.slice(0, 110)}.... </p>
+                                        <p className="text-gray-700 text-base mb-4"> {product?.description.slice(0, 110)}.... </p>
 
                                         <div className='flex justify-between font-semibold'>
                                             <p className="text-gray-600">Price : ${product.price}</p>

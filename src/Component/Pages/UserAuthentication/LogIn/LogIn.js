@@ -49,8 +49,8 @@ const LogIn = () => {
         const password = passwordRef.current.value
 
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post(`http://localhost:5000/login`, {email})
-       localStorage.setItem('accessJwtToken', data.accessJwtToken)
+        const { data } = await axios.post(`https://cryptic-stream-11517.herokuapp.com//login`, { email })
+        localStorage.setItem('accessJwtToken', data.accessJwtToken)
     }
 
     const resetPassHandle = async event => {
@@ -74,7 +74,7 @@ const LogIn = () => {
                         <div className="col-lg-5 col-xl-5">
                             <div className="card form-shadow">
                                 <img src="https://i.ibb.co/MVtZQR1/img3.jpg"
-                                    className="w-100 rounded-t-lg"  />
+                                    className="w-100 rounded-t-lg" />
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">LogIn Here</h3>
 

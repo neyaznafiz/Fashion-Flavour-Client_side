@@ -36,7 +36,7 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
 
-    const handleSignUp =async event => {
+    const handleSignUp = async event => {
         event.preventDefault()
 
         // const emailRegx = /\S+@\S+\.\S+/
@@ -49,7 +49,7 @@ const SignUp = () => {
 
         createUserWithEmailAndPassword(email, password)
 
-        const { data } = await axios.post(`http://localhost:5000/signup`, {email})
+        const { data } = await axios.post(`https://cryptic-stream-11517.herokuapp.com//signup`, { email })
         localStorage.setItem('accessJwtToken', data.accessJwtToken)
 
         updateProfile()

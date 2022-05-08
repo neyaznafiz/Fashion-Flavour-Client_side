@@ -24,11 +24,11 @@ const AddProduct = () => {
             img: event.target.photo.value
         }
 
-        const { data } = await axios.post('http://localhost:5000/dress', product)
+        const { data } = await axios.post('https://cryptic-stream-11517.herokuapp.com//dress', product)
         console.log(data);
         if (data.insertedId) {
             toast.success('Your product added successfully.')
-            
+
         }
         else {
             toast.error(data.error)
@@ -42,9 +42,9 @@ const AddProduct = () => {
 
             <div className='border-double border-8 m-1 h-full border-zinc-800'>
 
-            <div className='py-4 px-4'>
-                <button onClick={() => navigate(-1)} className='form-shadow py-2 px-4 font-semibold'>BACK</button>
-            </div>
+                <div className='py-4 px-4'>
+                    <button onClick={() => navigate(-1)} className='form-shadow py-2 px-4 font-semibold'>BACK</button>
+                </div>
 
                 <div className='my-8  flex justify-center'>
 

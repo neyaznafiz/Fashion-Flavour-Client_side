@@ -16,11 +16,11 @@ const Update = () => {
     const { img, name, supplier, description, price, quantity } = product
 
 
-    // const { data } = axios.get(`http://localhost:5000/dress/${Id}`, product)
+    // const { data } = axios.get(`https://cryptic-stream-11517.herokuapp.com//dress/${Id}`, product)
     // setProduct(data)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/dress/${Id}`)
+        fetch(`https://cryptic-stream-11517.herokuapp.com/dress/${Id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -37,7 +37,7 @@ const Update = () => {
 
         const updatedData = + restock + newQuantity
         setNewQuantity(updatedData)
-        const url = `http://localhost:5000/dress/${Id}`
+        const url = `https://cryptic-stream-11517.herokuapp.com/dress/${Id}`
 
         fetch(url, {
             method: 'PUT',
@@ -52,37 +52,9 @@ const Update = () => {
                 // set(data)
                 // alert('quantity updatted')
             })
-
-
-
+        event.target.reset()
 
     }
-
-
-    // const handleDelivery =  () => {
-    //     const newQuantity = parseInt(quantity) - 1
-    //     console.log(newQuantity);
-    //     const { productQuantity } = newQuantity
-    // const url = `http://localhost:5000/dress/${Id}`
-    // 
-
-    // const {data} = await axios.patch(url, newQuantity)
-    // setProduct(data)
-
-    //     fetch(url, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(productQuantity)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProduct(data)
-    //             alert('quantity updatted')
-    //         })
-
-    // }
 
 
     const handleDelivery = () => {
@@ -90,7 +62,7 @@ const Update = () => {
         if (newQuantity > 0) {
             const updatedData = newQuantity - 1
             setNewQuantity(updatedData)
-            const url = `http://localhost:5000/dress/${Id}`
+            const url = `https://cryptic-stream-11517.herokuapp.com/dress/${Id}`
 
             fetch(url, {
                 method: 'PUT',
