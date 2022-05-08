@@ -57,7 +57,7 @@ const MyProducts = () => {
 
 
             <div className='my-16 mx-auto '>
-                <h2 className='text-center text-4xl border-b-2 px-5 py-3'>YOUR PRODUCT - {product.length} </h2>
+                <h2 className='text-center text-4xl border-b-2 px-5 py-3'>YOUR PRODUCTS - {product.length} </h2>
             </div>
 
            <div className='flex justify-between'>

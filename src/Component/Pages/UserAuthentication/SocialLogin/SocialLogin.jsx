@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 
 const SocialLogin = () => {
@@ -35,6 +36,11 @@ const SocialLogin = () => {
     toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature here.')
   }
 
+  // const googleSignIn = async () => {
+  //   signInWithGoogle()
+  //   const { data } = await axios.post(`http://localhost:5000/signup`, {googleUser})
+  //       localStorage.setItem('accessJwtToken', data.accessJwtToken)
+  // }
 
   return (
     <div>

@@ -67,15 +67,14 @@ const LogIn = () => {
 
 
     return (
-        <div className=' w-full h-screen bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
+        <div className=' w-full pt-24 bg-yellow-600 border-8 border-yellow-600 grid grid-cols-1 lg:grid-cols-1'>
             <section className="h-100 h-custom" style={{ backgroundColor: '1' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-lg-5 col-xl-5">
                             <div className="card form-shadow">
                                 <img src="https://i.ibb.co/MVtZQR1/img3.jpg"
-                                    className="w-100 rounded-t-lg" style={{ borderTopLeftRadius: '.3rem' }, { borderTopRightRadius: '.3rem' }}
-                                    alt="Sample photo" />
+                                    className="w-100 rounded-t-lg"  />
                                 <div className="card-body">
                                     <h3 className="mb-4 pb-2  text-2xl font-bold font-serif">LogIn Here</h3>
 

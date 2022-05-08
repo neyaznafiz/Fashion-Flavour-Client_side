@@ -4,7 +4,11 @@ const Blog = () => {
   return (
     <div className='mt-16 bg-yellow-600 w-screen'>
 
-      <div className='form-shadow mx-3 lg:mx-20 mt-10 lg:mt-28 lg:mb-36 lg:p-20 grid grid-cols-1'>
+      <div className='text-center mt-10 lg:mt-28'>
+        <h2 className='text-4xl font-serif font-semibold'>EXPLORE SOME QUESTION ANSWER</h2>
+      </div>
+
+      <div className='form-shadow mx-3 lg:mx-20 mt-10 lg:mb-36 lg:p-20 grid grid-cols-1'>
 
         <div className="accordion " id="accordionExample">
           <div className="accordion-item form-shadow">
@@ -52,7 +56,7 @@ const Blog = () => {
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-mdb-parent="#accordionExample">
               <div className="accordion-body text-xl text-gray-700">
-             <strong>JWT (JavaScript Object Notation), or JSON Web Token,</strong> is an open standard used to share security information between client and server, in short JWT is used as a secure way to authenticate users and share information. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+                <strong>JWT (JavaScript Object Notation), or JSON Web Token,</strong> is an open standard used to share security information between client and server, in short JWT is used as a secure way to authenticate users and share information. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
               </div>
             </div>
           </div>

@@ -11,7 +11,10 @@ const Update = () => {
 
     const [product, setProduct] = useState({})
 
+    const [newQuantity, setNewQuantity] = useState(0)
+
     const { img, name, supplier, description, price, quantity } = product
+
 
     // const { data } = axios.get(`http://localhost:5000/dress/${Id}`, product)
     // setProduct(data)
@@ -19,49 +22,52 @@ const Update = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/dress/${Id}`)
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => {
+                setProduct(data)
+                setNewQuantity(data.quantity)
+                console.log(data);
+            })
     }, [])
 
 
     const handleQuantityUpdate = event => {
-        // event.preventDefault()
+        event.preventDefault()
 
-        // const addStock = event.target.restock.value
-        // console.log(addStock);
-        // event.target.reset()
+        const restock = event.target.restock.value
 
-        // // const updatedQuantity = { addStock }
+        const updatedData = + restock + newQuantity
+        setNewQuantity(updatedData)
+        const url = `http://localhost:5000/dress/${Id}`
 
-        // const url = `http://localhost:5000/dress/${Id}`
-        // fetch(url, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: 'updatedQuantity'
-        // })
-        //     .then(res => res.json())
-        //     .then(data => setProduct(data))
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ updatedData })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // set(data)
+                // alert('quantity updatted')
+            })
 
-
-        // const productQuantity = {quantity}
-        // console.log(productQuantity);
-        // const product = {...quantity + addStock}
-        // console.log(product);
 
 
 
     }
 
 
-    // const handleDelivery = () => {
+    // const handleDelivery =  () => {
     //     const newQuantity = parseInt(quantity) - 1
     //     console.log(newQuantity);
     //     const { productQuantity } = newQuantity
-    //     const url = `http://localhost:5000/dress/${Id}`
+    // const url = `http://localhost:5000/dress/${Id}`
+    // 
 
-    //     // const {data} = await axios.patch(url, newQuantity)
-    //     // setProduct(data)
+    // const {data} = await axios.patch(url, newQuantity)
+    // setProduct(data)
 
     //     fetch(url, {
     //         method: 'PATCH',
@@ -78,33 +84,31 @@ const Update = () => {
 
     // }
 
-   
-        const handleDelivery = () => {
 
-                const newQuantity = parseInt(quantity) - 1
-                console.log(newQuantity);
-                const { productQuantity } = newQuantity
-                const url = `http://localhost:5000/dress/${Id}`
-        
-                // const {data} = await axios.patch(url, newQuantity)
-                // setProduct(data)
-        
-                fetch(url, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(productQuantity)
+    const handleDelivery = () => {
+
+        if (newQuantity > 0) {
+            const updatedData = newQuantity - 1
+            setNewQuantity(updatedData)
+            const url = `http://localhost:5000/dress/${Id}`
+
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ updatedData })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    // set(data)
+                    // alert('quantity updatted')
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        setProduct(data)
-                        alert('quantity updatted')
-                    })
-        
-                    
-                }
-               
+        }
+
+    }
+
 
 
     return (
@@ -123,7 +127,8 @@ const Update = () => {
 
                             <div className='flex justify-between font-semibold'>
                                 <p className="text-gray-900">Price : ${price}</p>
-                                <p className="text-gray-600">Quantity : {quantity}</p>
+
+                                <p className="text-gray-600">Quantity : {newQuantity}</p>
                             </div>
                         </div>
 
