@@ -14,6 +14,7 @@
 - After `LOGIN` or `SIGNUP` tow more routes enable for you, that's called `ADD PRODUCTS` and `MY PRODUCTS`.
 - In `MY PRODUCTS` page you will see only those products that you will add.
 - In `BLOG` page you will find some question & answer about technologies.
+- You can only `DELETE` your own product in `MY PRODUCTS`.
 
 # Feature and Fandamentals
 
