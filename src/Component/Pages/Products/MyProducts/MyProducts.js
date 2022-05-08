@@ -85,7 +85,7 @@ const MyProducts = () => {
 
                                     <div className=''>
                                         <p className="text-gray-600 text-lg font-bold pb-4">Supplier: {product.supplier}</p>
-                                        <p className="text-gray-700 text-base mb-4"> {product?.description.slice(0, 110)}.... </p>
+                                        <p className="text-gray-700 text-base mb-4"> {product?.description?.slice(0, 110)}.... </p>
 
                                         <div className='flex justify-between font-semibold'>
                                             <p className="text-gray-600">Price : ${product.price}</p>
