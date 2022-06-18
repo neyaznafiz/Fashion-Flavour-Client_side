@@ -17,7 +17,7 @@
 
 # Feature and Fandamentals
 
-- You can managne your products very easily. Here, you can add your product for sell and you can manage you product quantity easilt, when you will sell a product your quantity will be decrease automatically and also you cal restock you product quantity. And based on your sell we will mark the top 3 seller every year.
+- You can managne your products very easily. Here, you can add your product for sell and you can manage you product quantity easily, when you will sell a product your quantity will be decrease automatically and also you can restock you product quantity. And based on your sell we will mark the top 3 seller every year.
 
 # Technologies that used
 
